@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Verleihfix</title>
+  </head>
+  <script src="systemjs/system.src.js"></script>
+  <script src="angular2/angular2.dev.js"></script>
+  <script src="angular2/http.dev.js"></script>
+  <script>
+    System.config({
+      packages: {'built/verleihfix': {defaultExtension: 'js'}}
+    });
+    System.import('built/verleihfix/verleihfix');
+  </script>
+  <body>
+    <verleihfix>Lade...</verleihfix>
+  </body>
+</html>
