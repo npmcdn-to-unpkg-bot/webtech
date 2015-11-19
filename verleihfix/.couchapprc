@@ -1,7 +1,0 @@
-{
-  "env" : {
-    "default" : {
-      "db" : "http://root:LOsnT0sH@localhost:15984/testdb"
-    }
-  }
-}
