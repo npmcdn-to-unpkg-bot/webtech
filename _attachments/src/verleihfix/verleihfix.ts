@@ -10,32 +10,34 @@ styleUrls: ['style/verleihfix.css'],
 viewProviders: [HTTP_PROVIDERS]
 })
 export class AppComponent {
-  private items: Item[];
-  private selected: boolean[];
+  items: Item[];
+  selected: boolean[];
 
   constructor(http: Http) {
+    this.items = [];
+    this.selected = [];
+
+    //mock some entries for now
     this.items = [
-    {"id": 1, "vendor": "Zoom", "product": "H1"},
-    {"id": 2, "vendor": "Zoom", "product": "H2"},
-    {"id": 3, "vendor": "Zoom", "product": "H3"},
-    {"id": 4, "vendor": "Zoom", "product": "H4"},
-    {"id": 5, "vendor": "Zoom", "product": "H5"},
-    {"id": 6, "vendor": "Zoom", "product": "H6"},
-    {"id": 7, "vendor": "Zoom", "product": "H7"},
-    {"id": 8, "vendor": "Zoom", "product": "H8"},
-    {"id": 9, "vendor": "Zoom", "product": "H9"},
-    {"id": 10, "vendor": "Zoom", "product": "H10"}
+      new Item(1, 'Zoom', 'H1'),
+      new Item(2, 'Zoom', 'H2'),
+      new Item(3, 'Zoom', 'H3'),
+      new Item(4, 'Zoom', 'H4'),
+      new Item(5, 'Zoom', 'H5')
     ];
   }
 
   rent() {
-    this.items.forEach(function(item) {
-      if (this.selected[item.id]) console.log(item.product);
-    });
+    /*
+    for (var item in this.items) {
+      if (item.selected) console.log(item.product);
+      console.log(item.selected);
+    }
+    */
   }
 
   toggleSelected(item) {
-    this.selected[item.id] = !this.selected[item.id];
+    item.selected = !item.selected;
   }
 }
 
