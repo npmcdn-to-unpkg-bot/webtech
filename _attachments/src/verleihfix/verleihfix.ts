@@ -1,5 +1,12 @@
-import {bootstrap, Component, CORE_DIRECTIVES} from 'angular2/angular2';
-import {Http, HTTP_PROVIDERS} from 'angular2/http';
+import {
+  bootstrap,
+  Component,
+  CORE_DIRECTIVES
+} from 'angular2/angular2';
+import {
+  Http,
+  HTTP_PROVIDERS
+} from 'angular2/http';
 import {Item} from './item';
 
 @Component({
@@ -11,29 +18,23 @@ viewProviders: [HTTP_PROVIDERS]
 })
 export class AppComponent {
   items: Item[];
-  selected: boolean[];
 
   constructor(http: Http) {
     this.items = [];
-    this.selected = [];
 
     //mock some entries for now
     this.items = [
-      new Item(1, 'Zoom', 'H1'),
-      new Item(2, 'Zoom', 'H2'),
-      new Item(3, 'Zoom', 'H3'),
-      new Item(4, 'Zoom', 'H4'),
-      new Item(5, 'Zoom', 'H5')
+      new Item(1, 'Zoom', 'H1', false),
+      new Item(2, 'Zoom', 'H2', false),
+      new Item(3, 'Zoom', 'H3', false),
+      new Item(4, 'Zoom', 'H4', false),
+      new Item(5, 'Zoom', 'H5', false)
     ];
   }
 
   rent() {
-    /*
-    for (var item in this.items) {
-      if (item.selected) console.log(item.product);
-      console.log(item.selected);
-    }
-    */
+    var selected = this.items.filter((item) => item.selected);
+    console.log(selected);
   }
 
   toggleSelected(item) {
