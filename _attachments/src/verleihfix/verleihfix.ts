@@ -1,7 +1,8 @@
 import {
   bootstrap,
   Component,
-  CORE_DIRECTIVES
+  CORE_DIRECTIVES,
+  enableDevMode
 } from 'angular2/angular2';
 import {
   Http,
@@ -42,4 +43,5 @@ export class AppComponent {
   }
 }
 
+enableDevMode();
 bootstrap(AppComponent);
