@@ -1,0 +1,19 @@
+{
+  "vendor": "Zoom",
+  "product": "H1",
+  "description": "MP3/WAV-Recorder",
+  "dimensions": {
+    "width": "44.0mm",
+    "depth": "136.0mm",
+    "height": "31.0mm"
+  },
+  "weight": "60g",
+  "tags": [
+    "audio recorder",
+    "microphone"
+  ],
+  "images": [
+    "img/zoom-h1-01.jpg",
+    "img/zoom-h1-02.jpg"
+  ]
+}

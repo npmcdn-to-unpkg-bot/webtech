@@ -1,0 +1,20 @@
+{
+  "vendor": "Zoom",
+  "product": "H4N",
+  "description": "Portabler MP3/Wave-Recorder",
+  "dimensions": {
+    "width": "73.0mm",
+    "depth": "156.3mm",
+    "height": "35.0mm"
+  },
+  "weight": "280g",
+  "tags": [
+    "audio recorder",
+    "microphone"
+  ],
+  "images": [
+    "img/zoom-h4n-01.jpg",
+    "img/zoom-h4n-02.jpg",
+    "img/zoom-h4n-03.jpg"
+  ]
+}
