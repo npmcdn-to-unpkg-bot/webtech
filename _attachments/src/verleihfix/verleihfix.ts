@@ -6,22 +6,24 @@ import {
 } from 'angular2/angular2';
 import {
   Http,
+  Headers,
   HTTP_PROVIDERS
 } from 'angular2/http';
 import {Item} from './item';
 
 @Component({
 selector: 'verleihfix',
-directives: [CORE_DIRECTIVES],
+bindings: [CORE_DIRECTIVES,HTTP_PROVIDERS],
 templateUrl: 'verleihfix.html',
-styleUrls: ['style/verleihfix.css'],
-viewProviders: [HTTP_PROVIDERS]
+styleUrls: ['style/verleihfix.css']
 })
 export class AppComponent {
   items: Item[];
+  http; any;
 
   constructor(http: Http) {
     this.items = [];
+    this.http = http;
 
     //mock some entries for now
     this.items = [
@@ -31,6 +33,8 @@ export class AppComponent {
       new Item(4, 'Zoom', 'H4', false),
       new Item(5, 'Zoom', 'H5', false)
     ];
+
+    this.generateItems();
   }
 
   rent() {
@@ -41,7 +45,15 @@ export class AppComponent {
   toggleSelected(item) {
     item.selected = !item.selected;
   }
+
+  getItems() {
+    this.http.get('http://localhost:15984/').subscribe(response => console.log(response.text()));
+  }
+
+  generateItems() {
+    this.http.put('http://localhost:15984/baseball').subscribe(response => console.log(response.text()));
+  }
 }
 
 enableDevMode();
-bootstrap(AppComponent);
+bootstrap(AppComponent).catch(err => console.error(err));;
