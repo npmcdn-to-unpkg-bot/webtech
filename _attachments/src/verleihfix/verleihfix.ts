@@ -22,7 +22,9 @@ export class AppComponent {
   constructor(http: Http) {
     this.http = http;
 
-    this.http.get('http://localhost:15984/item/_all_docs?include_docs=true').map(res => res.json().rows.map(res => res.doc)).subscribe(res => this.items = res);
+    this.http.get('http://localhost:15984/item/_all_docs?include_docs=true')
+      .map(res => res.json().rows.map(res => res.doc))
+      .subscribe(res => this.items = res);
   }
 
   rent() {
