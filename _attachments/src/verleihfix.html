@@ -5,15 +5,8 @@
   </section>
 
   <section id="main">
-    <div class="grid">
-      <div class="item" [class.selected]="item.selected" *ng-for="#item of items" (click)="toggleSelected(item)">
-        <img src="../{{item.images[0]}}"></img>
-        <p>{{item.vendor}} {{item.product}}</p>
-      </div>
-    </div>
-    <div class="menu">
-      <button class="rent" (click)="rent(item)">Ausleihen</button>
-    </div>
+    <grid>
+    </grid>
   </section>
 
   <section id="footer">
