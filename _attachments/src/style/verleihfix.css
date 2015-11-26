@@ -4,26 +4,29 @@
 
 h1 {
   margin: 25px;
+  font-size: 30px;
 }
 
 .item {
-  border-radius: 10px;
+  border-radius: 5px;
   background: #EEEEEE;
   padding: 10px;
   width: 200px;
   height: 200px;
   display: inline-block;
   margin: 10px;
+  border: solid #DDDDDD 1px;
 }
 
 .selected {
   border-radius: 10px;
-  background: #EEFFEE;
+  background: rgb(16,108,200);
   padding: 10px;
   width: 200px;
   height: 200px;
   display: inline-block;
   margin: 10px;
+  color: white;
 }
 
 .item>p {
@@ -31,8 +34,8 @@ h1 {
 }
 
 .item>img {
-  width: 170px;
-  height: 170px;
+  max-width: 170px;
+  max-height: 170px;
   overflow: hidden;
   display: block;
   margin-left: auto;
