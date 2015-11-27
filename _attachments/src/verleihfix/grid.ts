@@ -32,15 +32,15 @@ export class Grid {
   constructor(http:Http, lendingService:LendingService) {
     this.http = http;
     this.lendingService = lendingService;
-    this.http.get('http://localhost:15984/items/_all_docs?include_docs=true')
-      .map(res => res.json().rows.map(res => res.doc))
+    this.http.get('http://localhost:15984/verleihfix/_design/verleihfix/_view/items')
+      .map(res => res.json().rows.map(res => res.value))
       .subscribe(res => this.items = res);
   }
 
   rent(start:string, end:string) {
     var items = this.items.filter((item) => item.selected);
     for (var i = 0; i < items.length; i++) {
-      this.lendingService.rent({'itemID': items[i]._id, 'start': start, 'end': end})
+      this.lendingService.rent({'type': 'lending', 'itemID': items[i]._id, 'start': start, 'end': end})
         .subscribe(
             data => console.log(data),
             err => console.log(err),
