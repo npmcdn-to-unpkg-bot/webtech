@@ -29,6 +29,17 @@ h1 {
   color: white;
 }
 
+.disabled {
+  border-radius: 10px;
+  background: rgb(16,108,200);
+  padding: 10px;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin: 10px;
+  color: red;
+}
+
 .item>p {
   text-align: center;
 }
@@ -40,4 +51,21 @@ h1 {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.menu>p {
+  display: inline;
+  width: 100px;
+  margin: 10px;
+}
+.menu>input {
+  display: inline;
+  width: 100px;
+  margin: 10px;
+  text-align: right;
+}
+.menu>button {
+  display: inline;
+  width: 100px;
+  margin: 10px;
 }
