@@ -4,6 +4,15 @@
     <h1>Verleihfix</h1>
   </section>
 
+
+  <nav>
+    <ul>
+      <li><a [router-link]="['/Start']">Start Page</a></li>
+      <li><a [router-link]="['/Test']">Test Page</a></li>
+      <li><a [router-link]="['/Grid']">View Items</a></li>
+    </ul>
+  </nav>
+  
   <section id="main">
     <grid>
     </grid>
@@ -11,5 +20,10 @@
 
   <section id="footer">
   </section>
+  
+  <!--main!-->
+    <router-outlet></router-outlet>
+  <!--/main!-->
+  
 
 </section>

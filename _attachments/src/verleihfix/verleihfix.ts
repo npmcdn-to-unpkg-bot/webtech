@@ -2,16 +2,34 @@ import {
   bootstrap,
   Component,
   View,
+  provide,
   enableDevMode
 } from 'angular2/angular2';
-import {
-  Grid
-} from './grid';
+import { 
+  ROUTER_PROVIDERS,
+  ROUTER_DIRECTIVES,
+  RouterOutlet,
+  RouterLink,
+  RouteConfig,
+  LocationStrategy,
+  HashLocationStrategy
+} from 'angular2/router';
+import { Grid } from './grid';
+import { Start } from './start';
+import { Test } from './test';
 
+@RouteConfig([
+  {path: '/', as: 'Start', component: Start },
+  {path: '/test', as: 'Test', component: Test },
+  {path: '/grid', as: 'Grid', component: Grid }
+])
 @Component({
-selector: 'verleihfix',
+selector: 'verleihfix'
+//directives: 'ROUTE_DIRECTIVES'
+})
+@View({
+directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES],
 templateUrl: 'verleihfix.html',
-directives: [Grid],
 styleUrls: ['style/verleihfix.css']
 })
 export class Verleihfix {
@@ -20,4 +38,6 @@ export class Verleihfix {
 }
 
 enableDevMode();
-bootstrap(Verleihfix).catch(err => console.error(err));;
+bootstrap(Verleihfix, [ROUTER_PROVIDERS,
+  provide(LocationStrategy, {useClass:HashLocationStrategy})]
+  ).catch(err => console.error(err));;
