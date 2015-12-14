@@ -17,11 +17,13 @@ import {
 import { Grid } from './grid';
 import { Start } from './start';
 import { Test } from './test';
+import { Login } from './login';
 
 @RouteConfig([
   {path: '/', as: 'Start', component: Start },
   {path: '/test', as: 'Test', component: Test },
-  {path: '/grid', as: 'Grid', component: Grid }
+  {path: '/grid', as: 'Grid', component: Grid },
+  {path: '/login', as: 'Login', component: Login }
 ])
 @Component({
 selector: 'verleihfix'
@@ -33,8 +35,10 @@ templateUrl: 'verleihfix.html',
 styleUrls: ['style/verleihfix.css']
 })
 export class Verleihfix {
+  //navItem any;
   constructor() {
   }
+  //toggleActive() {}
 }
 
 enableDevMode();

@@ -1,15 +1,21 @@
 <section id="verleihfix">
 
-  <section id="header">
+  <!--section id="header">
     <h1>Verleihfix</h1>
-  </section>
+  </section!-->
 
 
-  <nav>
-    <ul>
-      <li><a [router-link]="['/Start']">Start Page</a></li>
-      <li><a [router-link]="['/Test']">Test Page</a></li>
-      <li><a [router-link]="['/Grid']">View Items</a></li>
+  <nav class="navbar navbar-default">
+    <a class="navbar-brand" href="#">Verleihfix</a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item"><a href="#" [router-link]="['/Start']">Start Page</a></li>
+      <li class="nav-item"><a href="#" [router-link]="['/Test']">Test Page</a></li>
+      <li class="nav-item"><a [router-link]="['/Grid']">View Items</a></li>
+    </ul>
+    <ul class="nav navbar-nav">
+      <li class="nav-item"><a [router-link]="['/Login']">Login</a></li>
+      
+      <li><button type="button" class="btn btn-default navbar-btn" [router-link]="['/Login']">Sign in</button></li>
     </ul>
   </nav>
   

@@ -1,0 +1,18 @@
+
+
+<div style="background-color: rgb(200,210,220); padding:10px; text-align:center; width:350px">
+<h1>Login</h1>
+<br></br>
+<form [ng-form-model]="loginForm" (submit)="doLogin($event)">
+   <label for="username">Username</label>
+   <input ng-control="username" type="username" placeholder="Username">
+   <br></br>
+   <label for="password">Password</label>
+   <input ng-control="password" type="password" placeholder="Password">
+   <br></br>
+   <button type="submit">Log In</button>
+</form>
+</div>
+
+<!--button type="button">Login</button!-->
+

@@ -17,7 +17,7 @@ import {
   selector: 'start'
 })
 @View({
-  template: '<h1>Start</h1>'
+  template: '<h2>Welcome to Verleihfix!</h2>'
 })
 export class Start {
 
