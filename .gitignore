@@ -1,3 +1,4 @@
 node_modules
 _attachments/src/built/
 *~
+.couchapprc
