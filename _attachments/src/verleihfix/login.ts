@@ -22,6 +22,7 @@ import {
   templateUrl:  'login.html'
 })
 export class Login {
+  loginForm: any;
   constructor(fb: FormBuilder) {
     this.loginForm = fb.group({
       email: ["", Validators.required],
