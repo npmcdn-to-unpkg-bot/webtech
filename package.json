@@ -13,6 +13,7 @@
   "dependencies": {
     "angular2": "^2.0.0-alpha.46",
     "es6-shim": "^0.33.13",
+    "font-awesome": "^4.5.0",
     "systemjs": "^0.19.6",
     "typescript": "^1.6.2"
   }
