@@ -32,7 +32,7 @@ export class Grid {
   constructor(http:Http, lendingService:LendingService) {
     this.http = http;
     this.lendingService = lendingService;
-    this.http.get('http://localhost:15984/verleihfix/_design/verleihfix/_view/items')
+    this.http.get('/verleihfix/_design/verleihfix/_view/items')
       .map(res => res.json().rows.map(res => res.value))
       .subscribe(res => this.items = res);
   }
