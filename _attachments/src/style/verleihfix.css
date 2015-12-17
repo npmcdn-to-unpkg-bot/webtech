@@ -19,7 +19,7 @@ h1 {
 }
 
 .selected {
-  border-radius: 10px;
+  border-radius: 5px;
   background: rgb(16,108,200);
   padding: 10px;
   width: 200px;
