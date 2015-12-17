@@ -1,11 +1,8 @@
+/// <reference path="fb/fbsdk.d.ts" />
 import {
-  Component,
-  View,
-  FormBuilder,
-  Validators
+  Component
 } from 'angular2/angular2';
-//import { RouterLink } from 'angular2/router';
-import { 
+import {
   ROUTER_PROVIDERS,
   ROUTER_DIRECTIVES,
   RouterOutlet,
@@ -16,21 +13,44 @@ import {
 } from 'angular2/router';
 
 @Component({
-  selector: 'login'
-})
-@View({
-  templateUrl:  'login.html'
+  selector: 'login',
+  templateUrl: 'login.html'
 })
 export class Login {
-  loginForm: any;
-  constructor(fb: FormBuilder) {
-    this.loginForm = fb.group({
-      username: ["", Validators.required],
-      password: ["", Validators.required]
+  connected: boolean;
+  username: string;
+  logIn() {
+    var service = this;
+    FB.login(function(response) {
+      service.checkLoginState();
     });
   }
-  doLogin(event) {
-    console.log(this.loginForm.value);
-    event.preventDefault();
+  logOut() {
+    var service = this;
+    FB.logout(function(response) {
+      service.checkLoginState();
+    });
+  }
+  checkLoginState() {
+    var login = this;
+    FB.getLoginStatus(function(response) {
+      if (response.status === 'connected') {
+        login.connected = true;
+      } else if (response.status === 'not_authorized') {
+        login.connected = false;
+      } else {
+        login.connected = false;
+      }
+    });
+  }
+  constructor() {
+    //window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '196162784061592',
+        xfbml      : true,
+        version    : 'v2.5'
+      });
+    //};
+      this.checkLoginState();
   }
 }
