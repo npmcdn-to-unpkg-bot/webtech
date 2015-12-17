@@ -1,0 +1,104 @@
+{
+  "_args": [
+    [
+      "ng2-translate",
+      "/home/doofy/git/verleihfix-couch-angular"
+    ]
+  ],
+  "_from": "ng2-translate@*",
+  "_id": "ng2-translate@1.2.3",
+  "_inCache": true,
+  "_location": "/ng2-translate",
+  "_nodeVersion": "4.2.3",
+  "_npmUser": {
+    "email": "olivier.combe@gmail.com",
+    "name": "ocombe"
+  },
+  "_npmVersion": "2.14.15",
+  "_phantomChildren": {
+    "es6-promise": "3.0.2"
+  },
+  "_requested": {
+    "name": "ng2-translate",
+    "raw": "ng2-translate",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "*",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/ng2-translate/-/ng2-translate-1.2.3.tgz",
+  "_shasum": "231d3f7d334da30b018f54accb90f3233876f44a",
+  "_shrinkwrap": null,
+  "_spec": "ng2-translate",
+  "_where": "/home/doofy/git/verleihfix-couch-angular",
+  "author": {
+    "name": "Olivier Combe"
+  },
+  "bugs": {
+    "url": "https://github.com/ocombe/ng2-translate/issues"
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
+  },
+  "dependencies": {
+    "angular2": "~2.0.0-beta.0",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "zone.js": "~0.5.10"
+  },
+  "description": "An implementation of angular translate for Angular 2",
+  "devDependencies": {
+    "commitizen": "~2.4.6",
+    "cz-conventional-changelog": "~1.1.4",
+    "jasmine-core": "~2.3.4",
+    "karma": "~0.13.15",
+    "karma-chrome-launcher": "~0.2.2",
+    "karma-firefox-launcher": "~0.1.7",
+    "karma-jasmine": "~0.3.6",
+    "karma-typescript-preprocessor": "0.0.21",
+    "semantic-release": "~4.3.5",
+    "systemjs": "~0.19.6",
+    "typescript": "~1.7.3"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "231d3f7d334da30b018f54accb90f3233876f44a",
+    "tarball": "http://registry.npmjs.org/ng2-translate/-/ng2-translate-1.2.3.tgz"
+  },
+  "gitHead": "e9dd9e0419f492639f92eb9ec6813dee6c93e0be",
+  "homepage": "https://github.com/ocombe/ng2-translate",
+  "installable": true,
+  "keywords": [
+    "angular",
+    "angular2",
+    "i18n",
+    "translate"
+  ],
+  "license": "MIT",
+  "main": "ng2-translate.js",
+  "maintainers": [
+    {
+      "name": "ocombe",
+      "email": "olivier.combe@gmail.com"
+    }
+  ],
+  "name": "ng2-translate",
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ocombe/ng2-translate.git"
+  },
+  "scripts": {
+    "commit": "git-cz",
+    "prepublish": "tsc",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "test": "tsc && karma start"
+  },
+  "typings": "./ng2-translate.d.ts",
+  "version": "1.2.3"
+}

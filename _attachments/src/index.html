@@ -13,7 +13,10 @@
   <script src="angular2/router.dev.js"></script>
   <script>
     System.config({
-      packages: {'built/verleihfix': {defaultExtension: 'js'}}
+      packages: {
+        'built/verleihfix': {defaultExtension: 'js'},
+        'ng2-translate': {defaultExtension: 'js'}
+      }
     });
     System.import('built/verleihfix/verleihfix');
   </script>
