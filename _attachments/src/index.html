@@ -4,6 +4,7 @@
     <title>Verleihfix</title>
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/font-awesome.min.css">
+    <link rel="stylesheet" href="style/flag-icon.min.css">
   </head>
   <script src="http://connect.facebook.net/en_US/sdk.js"></script>
   <script src="es6-shim/es6-shim.js"></script>
@@ -15,7 +16,8 @@
     System.config({
       packages: {
         'built/verleihfix': {defaultExtension: 'js'},
-        'ng2-translate': {defaultExtension: 'js'}
+        'ng2-translate': {defaultExtension: 'js'},
+        'rxjs': {defaultExtension: 'js'}
       }
     });
     System.import('built/verleihfix/verleihfix');

@@ -11,10 +11,12 @@ import {
   LocationStrategy,
   HashLocationStrategy
 } from 'angular2/router';
+import { TranslateService, TranslatePipe } from 'ng2-translate/ng2-translate';
 
 @Component({
   selector: 'login',
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
+  pipes: [TranslatePipe]
 })
 export class Login {
   connected: boolean;
@@ -44,6 +46,7 @@ export class Login {
     });
   }
   constructor() {
+    this.username = "nobody";
     //window.fbAsyncInit = function() {
       FB.init({
         appId      : '196162784061592',

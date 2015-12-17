@@ -14,13 +14,15 @@ import {
 import {
   Lending
 } from './lending';
+import { TranslateService, TranslatePipe } from 'ng2-translate/ng2-translate';
 
 @Component({
 selector: 'grid',
 directives: [CORE_DIRECTIVES],
 providers: [HTTP_PROVIDERS, LendingService],
 templateUrl: 'grid.html',
-styleUrls: ['style/verleihfix.css']
+styleUrls: ['style/verleihfix.css'],
+pipes: [TranslatePipe]
 })
 export class Grid {
   items: any;

@@ -14,12 +14,13 @@ import {
   LocationStrategy,
   HashLocationStrategy
 } from 'angular2/router';
-
+import { TranslateService, TranslatePipe } from 'ng2-translate/ng2-translate';
 
 @Component({
 selector: 'navigation',
 templateUrl: 'navigation.html',
-directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES, Login]
+directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES, Login],
+pipes: [TranslatePipe]
 })
 export class Navigation {
 
