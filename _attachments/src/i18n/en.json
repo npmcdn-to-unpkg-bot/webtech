@@ -1,5 +1,6 @@
 {
       "HELLO_WORLD": "hello",
+      "TITLE_START": "Start Page",
       "TITLE_GRID": "Items",
       "TITLE_LENDINGS": "Lendings",
       "LENDINGS": "Lendings",
@@ -7,4 +8,6 @@
       "LOGIN": "Log in",
       "STARTTIME": "Start time",
       "ENDTIME": "End time"
+      "USERNAME": "Username",
+      "PASSWORD": "Password"
 }

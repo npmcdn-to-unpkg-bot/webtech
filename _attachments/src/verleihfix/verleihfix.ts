@@ -21,9 +21,12 @@ import { Lendings } from './lendings';
 import { Navigation } from './navigation';
 
 @RouteConfig([
-  {path: '/', redirectTo: '/grid' },
+  //{path: '/', redirectTo: '/grid' },
+  {path: '/', as: 'Start', component: Start },
+  {path: '/start', as: 'Start', component: Start },
   {path: '/grid', as: 'Grid', component: Grid },
-  {path: '/lendings', as: 'Lendings', component: Lendings }
+  {path: '/lendings', as: 'Lendings', component: Lendings },
+  {path: '/login', as: 'Login', component: Login }
 ])
 @Component({
 selector: 'verleihfix',

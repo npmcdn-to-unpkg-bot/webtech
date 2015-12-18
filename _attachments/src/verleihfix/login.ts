@@ -1,59 +1,79 @@
-/// <reference path="fb/fbsdk.d.ts" />
 import {
-  Component
+  Component,
+  View,
+  FormBuilder,
+  Validators
 } from 'angular2/angular2';
-import {
+//import { RouterLink } from 'angular2/router';
+import { 
   ROUTER_PROVIDERS,
   ROUTER_DIRECTIVES,
   RouterOutlet,
   RouterLink,
   RouteConfig,
   LocationStrategy,
-  HashLocationStrategy
+  HashLocationStrategy,
+  Router
 } from 'angular2/router';
+import {
+  Http,
+  Headers,
+  HTTP_PROVIDERS
+} from 'angular2/http';
 import { TranslateService, TranslatePipe } from 'ng2-translate/ng2-translate';
+import { LoginFB } from './loginFB';
 
 @Component({
   selector: 'login',
-  templateUrl: 'login.html',
+  providers: [HTTP_PROVIDERS],
   pipes: [TranslatePipe]
 })
+@View({
+  templateUrl:  'login.html',
+  styleUrls: ['style/verleihfix.css']
+})
 export class Login {
-  connected: boolean;
-  username: string;
-  logIn() {
-    var service = this;
-    FB.login(function(response) {
-      service.checkLoginState();
+  loginForm: any;
+  http: any;
+  users: any;
+  loginMessage:string;
+  
+  constructor(fb: FormBuilder, public router: Router, http:Http) {
+    this.loginForm = fb.group({
+      username: ["", Validators.required],
+      password: ["", Validators.required]
     });
+    this.http = http;
+    this.http.get('http://localhost:15984/verleihfix/_design/verleihfix/_view/users')
+      .map(res => res.json().rows.map(res => res.value))
+      .subscribe(res => this.users = res);
+    this.loginMessage = "";
   }
-  logOut() {
-    var service = this;
-    FB.logout(function(response) {
-      service.checkLoginState();
-    });
-  }
-  checkLoginState() {
-    var login = this;
-    FB.getLoginStatus(function(response) {
-      if (response.status === 'connected') {
-        login.connected = true;
-      } else if (response.status === 'not_authorized') {
-        login.connected = false;
-      } else {
-        login.connected = false;
+  
+  doLogin(event) {
+    console.log(this.loginForm.value);
+    console.log(this.loginForm.value.username);
+    event.preventDefault();
+    
+    for(var i = 0; i < this.users.length; i++) {
+    
+      //console.log(this.users[0].username);
+      //console.log(this.loginForm.value.username);
+      
+      if(this.users[i].username == this.loginForm.value.username) {
+        
+        if(this.users[i].password == this.loginForm.value.password) {
+          console.log("login successful");
+          this.router.navigateByUrl('/start');
+          break;
+        } else {
+
+          console.log("login failed");
+          this.loginMessage = "wrong password";
+          break;
+        }
       }
-    });
-  }
-  constructor() {
-    this.username = "nobody";
-    //window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '196162784061592',
-        xfbml      : true,
-        version    : 'v2.5'
-      });
-    //};
-      this.checkLoginState();
+      this.loginMessage = "wrong username";
+      
   }
 }

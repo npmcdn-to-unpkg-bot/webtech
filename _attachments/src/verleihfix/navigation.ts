@@ -18,9 +18,12 @@ import { TranslateService, TranslatePipe } from 'ng2-translate/ng2-translate';
 
 @Component({
 selector: 'navigation',
-templateUrl: 'navigation.html',
 directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES, Login],
 pipes: [TranslatePipe]
+})
+@View({
+templateUrl: 'navigation.html',
+styleUrls: ['style/verleihfix.css'],
 })
 export class Navigation {
 

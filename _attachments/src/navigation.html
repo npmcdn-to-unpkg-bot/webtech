@@ -1,8 +1,21 @@
-<nav class="navbar navbar-default">
+<!--nav class="navbar navbar-default">
   <a class="navbar-brand" href="#">Verleihfix</a>
   <ul class="nav navbar-nav">
     <li class="nav-item"><a [router-link]="['/Grid']">{{ 'TITLE_GRID' | translate }}</a></li>
     <li class="nav-item"><a [router-link]="['/Lendings']">{{ 'TITLE_LENDINGS' | translate }}</a></li>
   </ul>
   <login></login>
-</nav>
+</nav!-->
+
+<nav class="navbar navbar-default">
+    <a class="navbar-brand" href="#">Verleihfix</a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item"><a href="#" [router-link]="['/Start']">{{ 'TITLE_START' | translate }}</a></li>
+      <li class="nav-item"><a [router-link]="['/Grid']">{{ 'TITLE_GRID' | translate }}</a></li>
+    <!--/ul>
+    <ul class="nav navbar-nav"!-->
+      <!--li class="nav-item"><a [router-link]="['/Login']">Login</a></li!-->
+      
+      <li><button type="button" class="btn btn-default navbar-btn" [router-link]="['/Login']">{{ 'LOGIN' | translate }}</button></li>
+    </ul>
+  </nav>
