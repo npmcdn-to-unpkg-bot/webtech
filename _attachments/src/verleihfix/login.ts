@@ -45,7 +45,7 @@ export class Login {
       password: ["", Validators.required]
     });
     this.http = http;
-    this.http.get('http://localhost:15984/verleihfix/_design/verleihfix/_view/users')
+    this.http.get('/verleihfix/_design/verleihfix/_view/users')
       .map(res => res.json().rows.map(res => res.value))
       .subscribe(res => this.users = res);
     this.loginMessage = "";
