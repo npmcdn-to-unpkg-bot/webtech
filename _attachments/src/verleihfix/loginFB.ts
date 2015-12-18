@@ -38,6 +38,7 @@ export class LoginFB {
     FB.getLoginStatus(function(response) {
       if (response.status === 'connected') {
         login.connected = true;
+        login.getUserinfo();
       } else if (response.status === 'not_authorized') {
         login.connected = false;
       } else {
@@ -45,6 +46,16 @@ export class LoginFB {
       }
     });
   }
+  getUserinfo() {
+    var login = this;
+    FB.api('/me', 'get',function(response) {
+      console.log(response);
+      var asd;
+      asd = response;
+      login.username = asd.name;
+    });
+  }
+
   constructor() {
     this.username = "nobody";
     //window.fbAsyncInit = function() {
