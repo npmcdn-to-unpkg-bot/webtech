@@ -49,7 +49,7 @@ export class Login {
       .map(res => res.json().rows.map(res => res.value))
       .subscribe(res => this.users = res);
     this.loginMessage = "";
-    this.loggedIn = false;
+    //this.loggedIn = false;
   }
   
   doLogin(event) {

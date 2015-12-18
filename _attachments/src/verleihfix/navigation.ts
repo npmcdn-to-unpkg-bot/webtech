@@ -22,7 +22,7 @@ import { TranslateService, TranslatePipe } from 'ng2-translate/ng2-translate';
 @Component({
 selector: 'navigation',
 directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES, LoginFB],
-pipes: [TranslatePipe]
+pipes: [TranslatePipe],
 templateUrl: 'navigation.html',
 styleUrls: ['style/verleihfix.css'],
 })
