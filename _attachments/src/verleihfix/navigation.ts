@@ -3,6 +3,9 @@ import {
   View
 } from 'angular2/angular2';
 import {
+  LoginFB
+} from './loginFB';
+import {
   Login
 } from './login';
 import {
@@ -18,10 +21,8 @@ import { TranslateService, TranslatePipe } from 'ng2-translate/ng2-translate';
 
 @Component({
 selector: 'navigation',
-directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES, Login],
+directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES, LoginFB],
 pipes: [TranslatePipe]
-})
-@View({
 templateUrl: 'navigation.html',
 styleUrls: ['style/verleihfix.css'],
 })

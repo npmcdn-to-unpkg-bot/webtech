@@ -25,12 +25,13 @@ import { LoginFB } from './loginFB';
 
 @Component({
   selector: 'login',
-  providers: [HTTP_PROVIDERS],
-  pipes: [TranslatePipe]
+  providers: [HTTP_PROVIDERS]
 })
 @View({
   templateUrl:  'login.html',
-  styleUrls: ['style/verleihfix.css']
+  styleUrls: ['style/verleihfix.css'],
+  pipes: [TranslatePipe],
+  directives: [LoginFB]
 })
 export class Login {
   loginForm: any;
@@ -48,6 +49,7 @@ export class Login {
       .map(res => res.json().rows.map(res => res.value))
       .subscribe(res => this.users = res);
     this.loginMessage = "";
+    this.loggedIn = false;
   }
   
   doLogin(event) {

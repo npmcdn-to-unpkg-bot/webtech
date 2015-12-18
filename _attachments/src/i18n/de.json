@@ -6,8 +6,12 @@
       "LENDINGS": "Ausleihen",
       "LEND": "Ausleihen",
       "LOGIN": "Einloggen",
+      "LOGIN_FB": "Einloggen mit Facebook",
+      "LOGOUT_FB": "Ausloggen mit Facebook",
       "STARTTIME": "Startzeitpunkt",
       "ENDTIME": "Endzeitpunkt",
       "USERNAME": "Benutzername",
-      "PASSWORD": "Passwort"
+      "PASSWORD": "Passwort",
+      "WELCOME": "Willkommen bei Verleihfix!",
+      "LANGUAGE": "Sprache"
 }

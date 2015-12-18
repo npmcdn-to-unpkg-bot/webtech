@@ -21,6 +21,7 @@ import { Lendings } from './lendings';
 import { Navigation } from './navigation';
 import { Start } from './start';
 import { Login } from './login';
+import { LoginFB } from './loginFB';
 
 @RouteConfig([
   //{path: '/', redirectTo: '/grid' },
@@ -28,7 +29,8 @@ import { Login } from './login';
   {path: '/start', as: 'Start', component: Start },
   {path: '/grid', as: 'Grid', component: Grid },
   {path: '/lendings', as: 'Lendings', component: Lendings },
-  {path: '/login', as: 'Login', component: Login }
+  {path: '/login', as: 'Login', component: Login },
+  {path: '/loginFB', as: 'LoginFB', component: LoginFB }
 ])
 @Component({
 selector: 'verleihfix',
@@ -39,6 +41,7 @@ pipes: [TranslatePipe]
 })
 export class Verleihfix {
   translateService: any;
+  loggedIn: boolean = false;
   constructor(translate: TranslateService) {
     this.translateService = translate;
     var userLang = navigator.language.split('-')[0]; // use navigator lang if available

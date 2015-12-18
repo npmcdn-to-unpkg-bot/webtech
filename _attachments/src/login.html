@@ -2,25 +2,35 @@
 
 <!--div style="background-color: rgb(200,210,220); padding:10px; text-align:center; width:350px"!-->
 <table>
-<tr>
+<tr style="width:400px">
 <td>
-  <div class="loginForm">
+
+  <div class="loginForm73" style="background-color: rgb(200,210,220); padding:10px; text-align:center; width:350px; margin:center">
   <h1>Login</h1>
   <br></br>
   <form [ng-form-model]="loginForm" (submit)="doLogin($event)">
+     <div style="text-align:right; width:290px">
+     
      <label for="username">{{ 'USERNAME' | translate }}</label>
-     <input ng-control="username" type="username" placeholder={{ 'USERNAME' | translate }}/>
+     <input ng-control="username" type="username" placeholder="Username"/>
+     
      <br></br>
+     
      <label for="password">{{ 'PASSWORD' | translate }}</label>
-     <input ng-control="password" type="password" placeholder={{ 'PASSWORD' | translate }}/>
+     <input ng-control="password" type="password" placeholder="Password"/>
+     
+     </div>
      <br></br>
      <button type="submit">{{ 'LOGIN' | translate }}</button>
   </form>
   <p style="color: red">{{loginMessage}}  </p>
   </div>
 </td>
-<td>
-  <loginFB style="padding:20px"></loginFB>
+<td style="width:30px"></td>
+<td style="width:200px">
+
+  <!--loginFB class="btn btn-default navbar-btn" style="padding:20px height:20px margin:center">test</loginFB!-->
+
 </td>
 </tr>
 </table>

@@ -1,12 +1,14 @@
 <section id="verleihfix">
   <section id="header">
     <navigation></navigation>
+    {{ 'LANGUAGE' | translate}}: 
     <span class='flag-icon flag-icon-us' (click)='setLang("en")'></span>
     <span class='flag-icon flag-icon-de' (click)='setLang("de")'></span>
+    <br></br>
   </section>
 
   <section id="main">
-    <p>Say {{ 'HELLO_WORLD' | translate }}</p>
+    <!--p>Say {{ 'HELLO_WORLD' | translate }}</p!-->
     <router-outlet></router-outlet>
   </section>
 
