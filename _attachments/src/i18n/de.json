@@ -1,3 +1,10 @@
 {
-      "HELLO_WORLD": "hallo"
+      "HELLO_WORLD": "hallo",
+      "TITLE_GRID": "Geräte",
+      "TITLE_LENDINGS": "Ausleihen",
+      "LENDINGS": "Ausleihen",
+      "LEND": "Ausleihen",
+      "LOGIN": "Einloggen",
+      "STARTTIME": "Startzeitpunkt",
+      "ENDTIME": "Endzeitpunkt"
 }

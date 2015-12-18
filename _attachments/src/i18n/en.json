@@ -1,3 +1,10 @@
 {
-      "HELLO_WORLD": "hello"
+      "HELLO_WORLD": "hello",
+      "TITLE_GRID": "Items",
+      "TITLE_LENDINGS": "Lendings",
+      "LENDINGS": "Lendings",
+      "LEND": "Lend",
+      "LOGIN": "Log in",
+      "STARTTIME": "Start time",
+      "ENDTIME": "End time"
 }
