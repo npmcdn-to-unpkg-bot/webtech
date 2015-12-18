@@ -19,6 +19,8 @@ import { TranslateService, TranslatePipe } from 'ng2-translate/ng2-translate';
 import { Grid } from './grid';
 import { Lendings } from './lendings';
 import { Navigation } from './navigation';
+import { Start } from './start';
+import { Login } from './login';
 
 @RouteConfig([
   //{path: '/', redirectTo: '/grid' },
