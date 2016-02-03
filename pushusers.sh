@@ -1,11 +1,12 @@
 USER=$(grep db .couchapprc | sed -e 's/.*http:\/\/\(.*\)@.*/\1/' | awk -F: '{print $1}')
 PASSWORD=$(grep db .couchapprc | sed -e 's/.*http:\/\/\(.*\)@.*/\1/' | awk -F: '{print $2}')
+SERVER="http://michael.virtuos.uni-osnabrueck.de:15984"
 
-curl -u $USER:$PASSWORD -X PUT "http://localhost:15984/verleihfix"
+curl -u $USER:$PASSWORD -X PUT "$SERVER/verleihfix"
 for i in $(find _attachments/users/*);
 do
-  UUID=$(curl "http://localhost:15984/_uuids?count=1" | awk -F '"' '{print $4}')
-  curl -u $USER:$PASSWORD -X PUT -d @$i "http://localhost:15984/verleihfix/$UUID"
+  UUID=$(curl "$SERVER/_uuids?count=1" | awk -F '"' '{print $4}')
+  curl -u $USER:$PASSWORD -X PUT -d @$i "$SERVER/verleihfix/$UUID"
 done;
 
 echo
