@@ -22,24 +22,28 @@ import {
   Headers,
   HTTP_PROVIDERS
 } from 'angular2/http';
+import 'rxjs/add/operator/map';
 import { LoginFB } from './loginFB';
 
 @Component({
-  selector: 'login',
-  providers: [HTTP_PROVIDERS]
+selector: 'login',
+providers: [HTTP_PROVIDERS]
 })
 @View({
-  templateUrl:  'login.html',
-  styleUrls: ['style/verleihfix.css'],
-  directives: [LoginFB]
+templateUrl:  'login.html',
+styleUrls: ['style/verleihfix.css'],
+directives: [LoginFB]
 })
 export class Login {
   loginForm: any;
   http: any;
   users: any;
   loginMessage:string;
+  router: Router;
+  userid: any;
 
-  constructor(fb: FormBuilder, public router: Router, http:Http) {
+  constructor(fb: FormBuilder, router: Router, http:Http) {
+    this.router = router;
     this.loginForm = fb.group({
       username: ["", Validators.required],
       password: ["", Validators.required]
@@ -50,33 +54,26 @@ export class Login {
       .subscribe(res => this.users = res);
     this.loginMessage = "";
     //this.loggedIn = false;
+    this.userid = 0;
   }
 
   doLogin(event) {
-    console.log(this.loginForm.value);
-    console.log(this.loginForm.value.username);
     event.preventDefault();
 
     for(var i = 0; i < this.users.length; i++) {
-
-      //console.log(this.users[0].username);
-      //console.log(this.loginForm.value.username);
-
       if(this.users[i].username == this.loginForm.value.username) {
-
         if(this.users[i].password == this.loginForm.value.password) {
           console.log("login successful");
           this.router.navigateByUrl('/start');
+          this.userid = this.users[i].id;
           break;
         } else {
-
           console.log("login failed");
           this.loginMessage = "wrong password";
           break;
         }
       }
       this.loginMessage = "wrong username";
-
     }
   }
 }
