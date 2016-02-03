@@ -4,19 +4,27 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tsc": "./node_modules/typescript/bin/tsc -p _attachments/src -w",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tsc": "tsc -p _attachments/src -w"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "angular2": "^2.0.0-alpha.46",
-    "es6-shim": "^0.33.13",
-    "flag-icon-css": "^0.8.4",
-    "font-awesome": "^4.5.0",
-    "ng2-translate": "^1.2.3",
-    "systemjs": "^0.19.6",
-    "typescript": "^1.6.2"
+    "angular2": "*",
+    "es6-promise": "*",
+    "es6-shim": "*",
+    "flag-icon-css": "*",
+    "font-awesome": "*",
+    "ng2-translate": "*",
+    "reflect-metadata": "*",
+    "requirejs": "*",
+    "rxjs": "*",
+    "systemjs": "*",
+    "typescript": "*",
+    "zone.js": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab-iml.virtuos.uos.de:webtech-2-ws1516/verleihfix-couch-angular.git"
   }
 }
