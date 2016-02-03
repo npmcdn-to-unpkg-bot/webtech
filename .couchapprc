@@ -1,7 +1,7 @@
 {
   "env" : {
     "default" : {
-      "db" : "http://root:JCTmGmsb@localhost:15984/verleihfix"
+      "db" : "http://verleihfix:verleihfix@localhost:15984/verleihfix"
     }
   }
 }
