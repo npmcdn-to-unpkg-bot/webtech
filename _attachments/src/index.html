@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Verleihfix</title>
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/font-awesome.min.css">
@@ -8,16 +9,17 @@
   </head>
   <script src="http://connect.facebook.net/en_US/sdk.js"></script>
   <script src="es6-shim/es6-shim.js"></script>
+  <script src="systemjs/system-polyfills.js"></script>
+  <script src="angular2/angular2-polyfills.js"></script>
   <script src="systemjs/system.src.js"></script>
   <script src="angular2/angular2.dev.js"></script>
   <script src="angular2/http.dev.js"></script>
   <script src="angular2/router.dev.js"></script>
+  <script src="rxjs/Rx.js"></script>
   <script>
     System.config({
       packages: {
-        'built/verleihfix': {defaultExtension: 'js'},
-        'ng2-translate': {defaultExtension: 'js'},
-        'rxjs': {defaultExtension: 'js'}
+        'built/verleihfix': {defaultExtension: 'js'}
       }
     });
     System.import('built/verleihfix/verleihfix');

@@ -1,7 +1,7 @@
 /// <reference path="fb/fbsdk.d.ts" />
 import {
   Component
-} from 'angular2/angular2';
+} from 'angular2/core';
 import {
   ROUTER_PROVIDERS,
   ROUTER_DIRECTIVES,
@@ -11,12 +11,10 @@ import {
   LocationStrategy,
   HashLocationStrategy
 } from 'angular2/router';
-import { TranslateService, TranslatePipe } from 'ng2-translate/ng2-translate';
 
 @Component({
   selector: 'loginFB',
-  templateUrl: 'loginFB.html',
-  pipes: [TranslatePipe]
+  templateUrl: 'loginFB.html'
 })
 export class LoginFB {
   connected: boolean;

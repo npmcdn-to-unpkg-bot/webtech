@@ -1,11 +1,13 @@
 import {
   Component,
-  View,
+  View
+} from 'angular2/core';
+import {
   FormBuilder,
   Validators
-} from 'angular2/angular2';
+} from 'angular2/common';
 //import { RouterLink } from 'angular2/router';
-import { 
+import {
   ROUTER_PROVIDERS,
   ROUTER_DIRECTIVES,
   RouterOutlet,
@@ -20,7 +22,6 @@ import {
   Headers,
   HTTP_PROVIDERS
 } from 'angular2/http';
-import { TranslateService, TranslatePipe } from 'ng2-translate/ng2-translate';
 import { LoginFB } from './loginFB';
 
 @Component({
@@ -30,7 +31,6 @@ import { LoginFB } from './loginFB';
 @View({
   templateUrl:  'login.html',
   styleUrls: ['style/verleihfix.css'],
-  pipes: [TranslatePipe],
   directives: [LoginFB]
 })
 export class Login {
@@ -38,7 +38,7 @@ export class Login {
   http: any;
   users: any;
   loginMessage:string;
-  
+
   constructor(fb: FormBuilder, public router: Router, http:Http) {
     this.loginForm = fb.group({
       username: ["", Validators.required],
@@ -51,19 +51,19 @@ export class Login {
     this.loginMessage = "";
     //this.loggedIn = false;
   }
-  
+
   doLogin(event) {
     console.log(this.loginForm.value);
     console.log(this.loginForm.value.username);
     event.preventDefault();
-    
+
     for(var i = 0; i < this.users.length; i++) {
-    
+
       //console.log(this.users[0].username);
       //console.log(this.loginForm.value.username);
-      
+
       if(this.users[i].username == this.loginForm.value.username) {
-        
+
         if(this.users[i].password == this.loginForm.value.password) {
           console.log("login successful");
           this.router.navigateByUrl('/start');
@@ -76,7 +76,7 @@ export class Login {
         }
       }
       this.loginMessage = "wrong username";
-      
-    } 
+
+    }
   }
 }

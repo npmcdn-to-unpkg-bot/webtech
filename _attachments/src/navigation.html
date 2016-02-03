@@ -1,22 +1,12 @@
-<!--nav class="navbar navbar-default">
-  <a class="navbar-brand" href="#">Verleihfix</a>
-  <ul class="nav navbar-nav">
-    <li class="nav-item"><a [router-link]="['/Grid']">{{ 'TITLE_GRID' | translate }}</a></li>
-    <li class="nav-item"><a [router-link]="['/Lendings']">{{ 'TITLE_LENDINGS' | translate }}</a></li>
-  </ul>
-  <login></login>
-</nav!-->
-
 <nav class="navbar navbar-default">
     <a class="navbar-brand" href="#">Verleihfix</a>
     <ul class="nav navbar-nav">
-      <li class="nav-item"><a href="#" [router-link]="['/Start']">{{ 'TITLE_START' | translate }}</a></li>
-      <li class="nav-item"><a [router-link]="['/Grid']">{{ 'TITLE_GRID' | translate }}</a></li>
-      <li class="nav-item"><a [router-link]="['/Lendings']">{{ 'TITLE_LENDINGS' | translate }}</a></li>
-    
-      <li class="nav-item"><a [router-link]="['/Login']">{{ 'LOGIN' | translate }}</a></li>
-      
-      <!--li><button type="button" class="btn btn-default navbar-btn" [router-link]="['/Login']">{{ 'LOGIN' | translate }}</button></li!-->
+      <li class="nav-item"><a href="#" [routerLink]="['/Start']">{{ 'TITLE_START' }}</a></li>
+      <li class="nav-item"><a [routerLink]="['/Grid']">{{ 'TITLE_GRID' }}</a></li>
+      <li class="nav-item"><a [routerLink]="['/Lendings']">{{ 'TITLE_LENDINGS' }}</a></li>
+
+      <li class="nav-item"><a [routerLink]="['/Login']">{{ 'LOGIN' }}</a></li>
+
       <li><loginFB class="btn btn-default navbar-btn" style=" background-color:rgb(59,89,152); color:white">test</loginFB>
       </li>
     </ul>

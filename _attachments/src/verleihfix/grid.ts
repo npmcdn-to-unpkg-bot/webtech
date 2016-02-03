@@ -1,8 +1,7 @@
 import {
   Component,
-  View,
-  CORE_DIRECTIVES
-} from 'angular2/angular2';
+  View
+} from 'angular2/core';
 import {
   Http,
   Headers,
@@ -14,15 +13,12 @@ import {
 import {
   Lending
 } from './lending';
-import { TranslateService, TranslatePipe } from 'ng2-translate/ng2-translate';
 
 @Component({
 selector: 'grid',
-directives: [CORE_DIRECTIVES],
 providers: [HTTP_PROVIDERS, LendingService],
 templateUrl: 'grid.html',
-styleUrls: ['style/verleihfix.css'],
-pipes: [TranslatePipe]
+styleUrls: ['style/verleihfix.css']
 })
 export class Grid {
   items: any;

@@ -10,18 +10,18 @@
   <br></br>
   <form [ng-form-model]="loginForm" (submit)="doLogin($event)">
      <div style="text-align:right; width:290px">
-     
-     <label for="username">{{ 'USERNAME' | translate }}</label>
+
+     <label for="username">{{ 'USERNAME' }}</label>
      <input ng-control="username" type="username" placeholder="Username"/>
-     
+
      <br></br>
-     
-     <label for="password">{{ 'PASSWORD' | translate }}</label>
+
+     <label for="password">{{ 'PASSWORD' }}</label>
      <input ng-control="password" type="password" placeholder="Password"/>
-     
+
      </div>
      <br></br>
-     <button type="submit">{{ 'LOGIN' | translate }}</button>
+     <button type="submit">{{ 'LOGIN' }}</button>
   </form>
   <p style="color: red">{{loginMessage}}  </p>
   </div>

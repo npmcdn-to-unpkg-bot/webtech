@@ -1,11 +1,10 @@
 import {HTTP_PROVIDERS} from 'angular2/http';
+import {bootstrap} from 'angular2/platform/browser';
 import {
-  bootstrap,
   Component,
   View,
-  provide,
-  enableDevMode
-} from 'angular2/angular2';
+  provide
+} from 'angular2/core';
 import {
   ROUTER_PROVIDERS,
   ROUTER_DIRECTIVES,
@@ -15,7 +14,6 @@ import {
   LocationStrategy,
   HashLocationStrategy
 } from 'angular2/router';
-import { TranslateService, TranslatePipe } from 'ng2-translate/ng2-translate';
 import { Grid } from './grid';
 import { Lendings } from './lendings';
 import { Navigation } from './navigation';
@@ -24,7 +22,6 @@ import { Login } from './login';
 import { LoginFB } from './loginFB';
 
 @RouteConfig([
-  //{path: '/', redirectTo: '/grid' },
   {path: '/', as: 'Start', component: Start },
   {path: '/start', as: 'Start', component: Start },
   {path: '/grid', as: 'Grid', component: Grid },
@@ -36,26 +33,14 @@ import { LoginFB } from './loginFB';
 selector: 'verleihfix',
 templateUrl: 'verleihfix.html',
 styleUrls: ['style/verleihfix.css'],
-directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES, Navigation],
-pipes: [TranslatePipe]
+directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES, Navigation]
 })
 export class Verleihfix {
-  translateService: any;
   loggedIn: boolean = false;
-  constructor(translate: TranslateService) {
-    this.translateService = translate;
-    var userLang = navigator.language.split('-')[0]; // use navigator lang if available
-    userLang = /(fr|en)/gi.test(userLang) ? userLang : 'en';
-    translate.use('en');
-    translate.setDefaultLang('en');
-  }
-  setLang(lang) {
-    this.translateService.use(lang);
-    this.translateService.getTranslation(lang);
+  constructor() {
   }
 }
 
-enableDevMode();
-bootstrap(Verleihfix, [ROUTER_PROVIDERS, HTTP_PROVIDERS, TranslateService,
+bootstrap(Verleihfix, [ROUTER_PROVIDERS, HTTP_PROVIDERS,
   provide(LocationStrategy, {useClass:HashLocationStrategy})]
   ).catch(err => console.error(err));

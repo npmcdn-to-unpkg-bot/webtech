@@ -1,7 +1,7 @@
 import {
   Component,
   View
-} from 'angular2/angular2';
+} from 'angular2/core';
 import {
   LoginFB
 } from './loginFB';
@@ -17,12 +17,10 @@ import {
   LocationStrategy,
   HashLocationStrategy
 } from 'angular2/router';
-import { TranslateService, TranslatePipe } from 'ng2-translate/ng2-translate';
 
 @Component({
 selector: 'navigation',
 directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES, LoginFB],
-pipes: [TranslatePipe],
 templateUrl: 'navigation.html',
 styleUrls: ['style/verleihfix.css'],
 })

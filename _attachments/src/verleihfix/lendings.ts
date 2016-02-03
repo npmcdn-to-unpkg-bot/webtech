@@ -1,7 +1,7 @@
 import {
   Component,
   View
-} from 'angular2/angular2';
+} from 'angular2/core';
 import {
   ROUTER_PROVIDERS,
   ROUTER_DIRECTIVES,
@@ -11,14 +11,12 @@ import {
   LocationStrategy,
   HashLocationStrategy
 } from 'angular2/router';
-import { TranslateService, TranslatePipe } from 'ng2-translate/ng2-translate';
 
 @Component({
   selector: 'lendings'
 })
 @View({
-  template: '<h2>{{ "LENDINGS" | translate }}</h2>',
-  pipes: [TranslatePipe]
+  template: '<h2>{{ "LENDINGS" }}</h2>'
 })
 export class Lendings {
 
