@@ -28,8 +28,7 @@ export class Lendings {
   constructor(http:Http) {
     this.http = http;
     this.http.get('/verleihfix/_design/verleihfix/_view/lendings')
-      .map(res => res.json().rows.map(res => res.value))
-      .subscribe(res => this.items = res);
+      .subscribe(res => this.items = res.json().rows.map(res => res.value));
   }
 
   delete(item:any) {

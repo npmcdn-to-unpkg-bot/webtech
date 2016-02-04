@@ -27,12 +27,19 @@ export class LendingService {
       .subscribe(res => this.uuids = res.json().uuids);
   }
   rent(lending:Lending) {
-    console.log(lending);
-    return this.http.put('/verleihfix/' + this.uuids.pop(),
+    return this.http.put(this.serverURL + '/verleihfix/' + this.uuids.pop(),
     JSON.stringify(lending),
     { headers: new Headers({'Content-Type': 'application/json'})
-    })
-    .map(res => res.json());
+    });
+  }
+  lend(item:any) {
+    return this.http.put(this.serverURL + '/verleihfix/' + item._id,
+    JSON.stringify(item),
+    { headers: new Headers({'Content-Type': 'application/json'})
+    });
+  }
+  getAvailableItems() {
+    return this.http.get(this.serverURL + this.appURL + '/_view/availableitems')
   }
   getItems() {
     return this.http.get(this.serverURL + this.appURL + '/_view/items')

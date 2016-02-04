@@ -10,7 +10,7 @@ import {Grid} from './grid';
 @Component({
 selector: 'verleihfix',
 templateUrl: 'verleihfix.html',
-styleUrls: ['verleihfix.css'],
+styleUrls: ['style/verleihfix.css'],
 directives: [Grid]
 })
 export class Verleihfix {

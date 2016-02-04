@@ -3,11 +3,6 @@ import {
   View
 } from 'angular2/core';
 import {
-  Http,
-  Headers,
-  HTTP_PROVIDERS
-} from 'angular2/http';
-import {
   LendingService
 } from './lendingservice';
 import {
@@ -16,23 +11,20 @@ import {
 
 @Component({
 selector: 'grid',
-providers: [HTTP_PROVIDERS, LendingService],
+providers: [LendingService],
 templateUrl: 'grid.html',
 styleUrls: ['style/verleihfix.css']
 })
 export class Grid {
   items: any;
-  http: any;
   lendingService: any;
   starttime: number;
   endtime: number;
 
-  constructor(http:Http, lendingService:LendingService) {
-    this.http = http;
+  constructor(lendingService:LendingService) {
     this.lendingService = lendingService;
-    this.http.get('/verleihfix/_design/verleihfix/_view/items')
-      .map(res => res.json().rows.map(res => res.value))
-      .subscribe(res => this.items = res);
+    this.lendingService.getAvailableItems()
+      .subscribe(res => this.items = res.json().rows.map(res => res.value));
   }
 
   rent(start:string, end:string) {
@@ -44,7 +36,16 @@ export class Grid {
             err => console.log(err),
             () => console.log('rent successfull')
             );
+      items[i].lend = true;
       items[i].selected = false;
+      this.lendingService.lend(items[i])
+        .subscribe(
+            data => console.log(data),
+            err => console.log(err),
+            () => console.log('lend successfull')
+            );
+    this.lendingService.getAvailableItems()
+      .subscribe(res => this.items = res.json().rows.map(res => res.value));
     }
   }
 

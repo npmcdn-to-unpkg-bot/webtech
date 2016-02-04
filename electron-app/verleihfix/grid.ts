@@ -23,11 +23,17 @@ export class Grid {
 
   constructor(lendingService:LendingService) {
     this.lendingService = lendingService;
+    setInterval(() => this.fetchItems(), 5000);
+  }
+
+  fetchItems() {
+    console.log("fetch");
     this.lendingService.getAvailableItems()
       .subscribe(res => this.items = res.json().rows.map(res => res.value));
   }
 
   rent(start:string, end:string) {
+
     var items = this.items.filter((item) => item.selected);
     for (var i = 0; i < items.length; i++) {
       this.lendingService.rent({'type': 'lending', 'itemID': items[i]._id, 'start': start, 'end': end})
@@ -44,8 +50,7 @@ export class Grid {
             err => console.log(err),
             () => console.log('lend successfull')
             );
-    this.lendingService.getAvailableItems()
-      .subscribe(res => this.items = res.json().rows.map(res => res.value));
+      this.fetchItems();
     }
   }
 
