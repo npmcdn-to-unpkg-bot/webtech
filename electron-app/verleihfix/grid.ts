@@ -13,7 +13,7 @@ import {
 selector: 'grid',
 providers: [LendingService],
 templateUrl: 'grid.html',
-styleUrls: ['verleihfix.css']
+styleUrls: ['style/verleihfix.css']
 })
 export class Grid {
   items: any;
@@ -23,7 +23,7 @@ export class Grid {
 
   constructor(lendingService:LendingService) {
     this.lendingService = lendingService;
-    this.lendingService.getItems()
+    this.lendingService.getAvailableItems()
       .subscribe(res => this.items = res.json().rows.map(res => res.value));
   }
 
@@ -36,7 +36,16 @@ export class Grid {
             err => console.log(err),
             () => console.log('rent successfull')
             );
+      items[i].lend = true;
       items[i].selected = false;
+      this.lendingService.lend(items[i])
+        .subscribe(
+            data => console.log(data),
+            err => console.log(err),
+            () => console.log('lend successfull')
+            );
+    this.lendingService.getAvailableItems()
+      .subscribe(res => this.items = res.json().rows.map(res => res.value));
     }
   }
 
