@@ -4,13 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tsc": "tsc -p _attachments/src -w"
+    "tsc": "tsc -w -p _attachments/src",
+    "tsc-chrome-app": "tsc -w -p chrome-app",
+    "tsc-electron-app": "tsc -w -p electron-app",
+    "chrome-app": "chromium --load-and-launch-app=$(pwd)/chrome-app",
+    "electron-app": "electron electron-app"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "angular2": "*",
+    "electron-prebuilt": "^0.36.7",
     "es6-promise": "*",
     "es6-shim": "*",
     "flag-icon-css": "*",

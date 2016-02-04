@@ -1,0 +1,13 @@
+<div class="grid">
+  <div class="item" [class.selected]="item.selected" [class.disabled]="item.disabled" *ngFor="#item of items" (click)="toggleSelected(item)">
+    <img src="{{lendingService.serverURL+lendingService.appURL+item.images[0]}}"/>
+    <p>{{item.vendor}} {{item.product}}</p>
+  </div>
+</div>
+<div class="menu">
+  <p>{{ 'STARTTIME' }}:</p>
+  <input #starttime (keyup)="refresh(starttime.value, endtime.value)" value="0">
+  <p>{{ 'ENDTIME' }}:</p>
+  <input #endtime (keyup)="refresh(starttime.value, endtime.value)" value="10">
+  <button (click)="rent(starttime.value, endtime.value)">{{ 'LEND' }}</button>
+</div>
