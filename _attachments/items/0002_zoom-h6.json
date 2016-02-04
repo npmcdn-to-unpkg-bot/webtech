@@ -1,0 +1,22 @@
+{
+  "type": "item",
+  "vendor": "Zoom",
+  "product": "H6",
+  "lend": false,
+  "description": "Portabler 6-Spur Audio-Recorder",
+  "dimensions": {
+    "width": "77.8mm",
+    "depth": "152.8mm",
+    "height": "47.8mm"
+  },
+  "weight": "280g",
+  "tags": [
+    "audio recorder",
+    "microphone"
+  ],
+  "images": [
+    "img/zoom-h6-01.jpg",
+    "img/zoom-h6-02.jpg"
+  ],
+  "serial": "0002"
+}

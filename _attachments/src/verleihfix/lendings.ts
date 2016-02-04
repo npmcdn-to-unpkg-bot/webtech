@@ -29,8 +29,7 @@ export class Lendings {
     this.http = http;
     this.http.get('/verleihfix/_design/verleihfix/_view/lendings')
       .map(res => res.json().rows.map(res => res.value))
-      .subscribe(res => console.log(res));
-      //.subscribe(res => this.items = res);
+      .subscribe(res => this.items = res);
   }
 
   delete(item:any) {

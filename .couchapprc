@@ -1,7 +1,7 @@
 {
   "env" : {
     "default" : {
-      "db" : "http://verleihfix:verleihfix@localhost:15984/verleihfix"
+      "db" : "http://verleihfix:verleihfix2@michael.virtuos.uni-osnabrueck.de:15984/verleihfix"
     }
   }
 }
