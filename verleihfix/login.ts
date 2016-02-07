@@ -23,7 +23,6 @@ import {
   HTTP_PROVIDERS
 } from 'angular2/http';
 import 'rxjs/add/operator/map';
-import { LoginFB } from './loginFB';
 
 @Component({
 selector: 'login',
@@ -31,8 +30,7 @@ providers: [HTTP_PROVIDERS]
 })
 @View({
 templateUrl:  'login.html',
-styleUrls: ['style/verleihfix.css'],
-directives: [LoginFB]
+styleUrls: ['style/verleihfix.css']
 })
 export class Login {
   loginForm: any;
