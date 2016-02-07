@@ -8,7 +8,7 @@ System.import('verleihfix/bootstrap').then(null, console.error.bind(console));
 */
 System.config({
   packages: {
-    'built/verleihfix': {defaultExtension: 'js'}
+    'built': {defaultExtension: 'js'}
   }
 });
-System.import('built/verleihfix/verleihfix');
+System.import('built/verleihfix');
