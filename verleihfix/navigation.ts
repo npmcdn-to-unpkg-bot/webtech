@@ -3,9 +3,6 @@ import {
   View
 } from 'angular2/core';
 import {
-  LoginFB
-} from './loginFB';
-import {
   Login
 } from './login';
 import {
@@ -20,7 +17,7 @@ import {
 
 @Component({
 selector: 'navigation',
-directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES, LoginFB],
+directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES],
 templateUrl: 'navigation.html',
 styleUrls: ['style/verleihfix.css'],
 })
