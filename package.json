@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tsc": "tsc -w -p _attachments/src",
-    "tsc-chrome-app": "tsc -w -p chrome-app",
-    "tsc-electron-app": "tsc -w -p electron-app",
+    "tsc": "tsc -w -p verleihfix",
     "chrome-app": "chromium --load-and-launch-app=$(pwd)/chrome-app",
     "electron-app": "electron electron-app"
   },
