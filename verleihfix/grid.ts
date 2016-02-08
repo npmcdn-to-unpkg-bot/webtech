@@ -17,7 +17,7 @@ styleUrls: ['style/verleihfix.css']
 })
 export class Grid {
   items: any;
-  selected: boolean;
+  selected: boolean[];
   lendingService: any;
   starttime: number;
   endtime: number;
@@ -26,6 +26,7 @@ export class Grid {
     this.lendingService = lendingService;
     setInterval(() => this.fetchItems(), 5000);
     this.fetchItems();
+    this.selected = [];
   }
 
   fetchItems() {
