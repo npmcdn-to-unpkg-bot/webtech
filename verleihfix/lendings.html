@@ -1,0 +1,10 @@
+<div class="lendings">
+  <div class="lending" [class.selected]="selected[lending._id]" *ngFor="#lending of lendings" (click)="toggleSelected(lending)">
+    <p>itemID: {{lending.itemID}}</p>
+    <p>start: {{lending.start}}</p>
+    <p>end: {{lending.end}}</p>
+  </div>
+</div>
+<div class="menu">
+  <button (click)="delete()">{{ 'DELETE' }}</button>
+</div>

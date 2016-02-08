@@ -37,7 +37,8 @@ export class Grid {
   rent(start:string, end:string) {
     var selectedItems = this.items.filter((item) => this.selected[item._id]);
     for (var i = 0; i < selectedItems.length; i++) {
-      this.lendingService.rent({'type': 'lending', 'itemID': selectedItems[i]._id, 'start': start, 'end': end})
+      var lending = {'type': 'lending', 'itemID': selectedItems[i]._id, 'start': start, 'end': end};
+      this.lendingService.rent(lending)
         .subscribe(
             data => console.log(data),
             err => console.log(err),
@@ -49,6 +50,10 @@ export class Grid {
 
   toggleSelected(item) {
     this.selected[item._id] = !this.selected[item._id];
-    console.log(this.selected);
+  }
+
+  refresh(starttime, endtime) {
+    this.starttime = starttime;
+    this.endtime = endtime;
   }
 }

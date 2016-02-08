@@ -29,20 +29,29 @@ templateUrl: 'lendings.html',
 providers: [LendingService]
 })
 export class Lendings {
-  lendings: Lending;
+  selected: boolean[];
+  lendings: any;
   lendingService: LendingService;
 
   constructor(lendingService:LendingService) {
+    this.selected = [];
     this.lendingService = lendingService;
-    this.getLendings();
+    this.fetchLendings();
   }
 
-  getLendings() {
-    this.lendingService.getAvailableItems()
+  fetchLendings() {
+    this.lendingService.getLendings()
       .subscribe(res => this.lendings = res.json().rows.map(res => res.value));
   }
 
-  delete(item:any) {
-    console.log(item);
+  toggleSelected(item) {
+    this.selected[item._id] = !this.selected[item._id];
+  }
+
+  delete() {
+    var selectedItems = this.lendings.filter((lending) => this.selected[lending._id]);
+    for (var i = 0; i < selectedItems.length; i++) {
+      console.log(selectedItems[i]);
+    }
   }
 }

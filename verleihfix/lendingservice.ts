@@ -28,9 +28,9 @@ export class LendingService {
     this.http = http;
     this.fetchUUIDs();
   }
-  rent(item:Item) {
-    return this.http.put(this.getUUID(),
-    JSON.stringify(item),
+  rent(lending:Lending) {
+    return this.http.put(this.serverURL + "verleihfix/" + this.getUUID(),
+    JSON.stringify(lending),
     { headers: new Headers({'Content-Type': 'application/json'})
     });
   }
