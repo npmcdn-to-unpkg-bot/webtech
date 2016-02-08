@@ -1,6 +1,6 @@
 USER=$(grep db .couchapprc | sed -e 's/.*http:\/\/\(.*\)@.*/\1/' | awk -F: '{print $1}')
 PASSWORD=$(grep db .couchapprc | sed -e 's/.*http:\/\/\(.*\)@.*/\1/' | awk -F: '{print $2}')
-SERVER="http://michael.virtuos.uni-osnabrueck.de:15984"
+SERVER=$(grep db .couchapprc | sed -e 's/.*"db" : "\(.*\)\/verleihfix.*/\1/')
 
 curl -u $USER:$PASSWORD -X PUT "$SERVER/verleihfix"
 for i in $(find _attachments/items/*);
