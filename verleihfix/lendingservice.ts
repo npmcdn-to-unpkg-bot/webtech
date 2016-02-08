@@ -23,6 +23,7 @@ export class LendingService {
   constructor(http:Http) {
     this.serverURL = "http://michael.virtuos.uni-osnabrueck.de:15984/";
     this.appURL = "verleihfix/_design/verleihfix/";
+    this.fullAppURL = this.serverURL + this.appURL;
     this.http = http;
     this.fetchUUIDs();
   }
@@ -33,10 +34,10 @@ export class LendingService {
     });
   }
   getAvailableItems() {
-    return this.http.get(this.serverURL + this.appURL + '/_view/availableitems');
+    return this.http.get(this.fullAppURL + '/_view/availableitems');
   }
   getItems() {
-    return this.http.get(this.serverURL + this.appURL + '/_view/items');
+    return this.http.get(this.fullAppURL + '/_view/items');
   }
   fetchUUIDs() {
     this.http.get(this.serverURL + '/_uuids?count=100')
@@ -47,7 +48,7 @@ export class LendingService {
     return this.uuids.pop();
   }
   getLendings() {
-    return this.http.get(this.serverURL + this.appURL + '/_view/lendings');
+    return this.http.get(this.fullAppURL + '/_view/lendings');
   }
 }
 
