@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tsc": "tsc -w -p verleihfix --outDir built",
+    "tsc": "tsc -w -p verleihfix",
     "chrome-app": "chromium --load-and-launch-app=$(pwd)/chrome-app",
     "electron-app": "electron electron-app"
   },
