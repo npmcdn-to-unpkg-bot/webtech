@@ -19,6 +19,7 @@ export class LendingService {
   uuids: number[];
   public serverURL: any;
   public appURL: any;
+  public fullAppURL: any;
 
   constructor(http:Http) {
     this.serverURL = "http://michael.virtuos.uni-osnabrueck.de:15984/";
