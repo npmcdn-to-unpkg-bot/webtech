@@ -34,7 +34,7 @@ export class Grid {
   }
 
   rent(start:string, end:string) {
-    var selectedItems = this.items.filter((item) => this.selected(item._id));
+    var selectedItems = this.items.filter((item) => this.selected[item._id]);
     for (var i = 0; i < selectedItems.length; i++) {
       this.lendingService.rent({'type': 'lending', 'itemID': selectedItems[i]._id, 'start': start, 'end': end})
         .subscribe(
@@ -42,7 +42,7 @@ export class Grid {
             err => console.log(err),
             () => console.log('rent successfull')
             );
-      items[i].lend = true;
+      selectedItems[i].lend = true;
     }
   }
 
