@@ -6,6 +6,9 @@ import {
   Login
 } from './login';
 import {
+  LoginFB
+} from './loginFB';
+import {
   ROUTER_PROVIDERS,
   ROUTER_DIRECTIVES,
   RouterOutlet,
@@ -17,7 +20,7 @@ import {
 
 @Component({
 selector: 'navigation',
-directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES],
+directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES, LoginFB],
 templateUrl: 'navigation.html',
 styleUrls: ['style/verleihfix.css'],
 })
