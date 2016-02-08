@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "angular2": "*",
-    "electron-prebuilt": "^0.36.7",
+    "electron-prebuilt": "*",
     "es6-promise": "*",
     "es6-shim": "*",
     "flag-icon-css": "*",
