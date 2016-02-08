@@ -6,7 +6,8 @@
   "scripts": {
     "tsc": "tsc -w -p verleihfix",
     "chrome-app": "chromium --load-and-launch-app=$(pwd)/chrome-app",
-    "electron-app": "electron electron-app"
+    "electron-app": "electron electron-app",
+    "upload": "cp -r verleihfix electron-app/; cp -r verleihfix _attachments/src/; couchapp push"
   },
   "keywords": [],
   "author": "",

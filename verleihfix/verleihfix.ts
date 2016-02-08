@@ -31,7 +31,7 @@ import { LoginFB } from './loginFB';
 ])
 @Component({
 selector: 'verleihfix',
-templateUrl: 'verleihfix.html',
+templateUrl: '../verleihfix.html',
 styleUrls: ['style/verleihfix.css'],
 directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES, Navigation, Grid]
 })
