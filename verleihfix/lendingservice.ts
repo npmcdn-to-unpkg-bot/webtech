@@ -8,6 +8,9 @@ import {
 import {
   Lending
 } from './lending';
+import {
+  Item
+} from './item';
 
 @Injectable()
 export class LendingService {
@@ -19,30 +22,32 @@ export class LendingService {
 
   constructor(http:Http) {
     this.serverURL = "http://michael.virtuos.uni-osnabrueck.de:15984/";
-    this.appURL = "/verleihfix/_design/verleihfix/";
+    this.appURL = "verleihfix/_design/verleihfix/";
     this.http = http;
-    this.http.get(this.serverURL + this.appURL + '/_view/lendings')
-      .subscribe(res => this.lendings = res.json().rows.map(res => res.value));
-    this.http.get(this.serverURL+'/_uuids?count=100')
-      .subscribe(res => this.uuids = res.json().uuids);
+    this.fetchUUIDs();
   }
-  rent(lending:Lending) {
-    return this.http.put(this.serverURL + '/verleihfix/' + this.uuids.pop(),
-    JSON.stringify(lending),
-    { headers: new Headers({'Content-Type': 'application/json'})
-    });
-  }
-  lend(item:any) {
-    return this.http.put(this.serverURL + '/verleihfix/' + item._id,
+  rent(item:Item) {
+    return this.http.put(this.getUUID(),
     JSON.stringify(item),
     { headers: new Headers({'Content-Type': 'application/json'})
     });
   }
   getAvailableItems() {
-    return this.http.get(this.serverURL + this.appURL + '/_view/availableitems')
+    return this.http.get(this.serverURL + this.appURL + '/_view/availableitems');
   }
   getItems() {
-    return this.http.get(this.serverURL + this.appURL + '/_view/items')
+    return this.http.get(this.serverURL + this.appURL + '/_view/items');
+  }
+  fetchUUIDs() {
+    this.http.get(this.serverURL + '/_uuids?count=100')
+      .subscribe(res => this.uuids = res.json().uuids);
+  }
+  getUUID() {
+    //TODO check if this.uuids is empty and request new ones if necessary
+    return this.uuids.pop();
+  }
+  getLendings() {
+    return this.http.get(this.serverURL + this.appURL + '/_view/lendings');
   }
 }
 

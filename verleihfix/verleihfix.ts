@@ -33,7 +33,7 @@ import { LoginFB } from './loginFB';
 selector: 'verleihfix',
 templateUrl: 'verleihfix.html',
 styleUrls: ['style/verleihfix.css'],
-directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES, Navigation]
+directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES, Navigation, Grid]
 })
 export class Verleihfix {
   loggedIn: boolean = false;

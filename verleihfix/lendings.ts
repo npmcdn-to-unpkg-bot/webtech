@@ -16,19 +16,30 @@ import {
   LocationStrategy,
   HashLocationStrategy
 } from 'angular2/router';
+import {
+  LendingService
+} from './lendingservice';
+import {
+  Lending
+} from './lending';
 
 @Component({
 selector: 'lendings',
-templateUrl: 'lendings.html'
+templateUrl: 'lendings.html',
+providers: [LendingService]
 })
 export class Lendings {
-  items: any;
-  http: any;
+  lendings: Lending;
+  lendingService: LendingService;
 
-  constructor(http:Http) {
-    this.http = http;
-    this.http.get('/verleihfix/_design/verleihfix/_view/lendings')
-      .subscribe(res => this.items = res.json().rows.map(res => res.value));
+  constructor(lendingService:LendingService) {
+    this.lendingService = lendingService;
+    this.getLendings();
+  }
+
+  getLendings() {
+    this.lendingService.getAvailableItems()
+      .subscribe(res => this.lendings = res.json().rows.map(res => res.value));
   }
 
   delete(item:any) {

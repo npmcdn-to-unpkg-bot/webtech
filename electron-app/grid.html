@@ -1,6 +1,6 @@
 <div class="grid">
   <div class="item" [class.selected]="item.selected" [class.disabled]="item.disabled" *ngFor="#item of items" (click)="toggleSelected(item)">
-    <img src="{{lendingService.serverURL+lendingService.appURL+item.images[0]}}"/>
+    <img src="../{{item.images[0]}}"/>
     <p>{{item.vendor}} {{item.product}}</p>
   </div>
 </div>

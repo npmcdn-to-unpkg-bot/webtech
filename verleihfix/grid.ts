@@ -17,6 +17,7 @@ styleUrls: ['style/verleihfix.css']
 })
 export class Grid {
   items: any;
+  selected: boolean;
   lendingService: any;
   starttime: number;
   endtime: number;
@@ -24,37 +25,29 @@ export class Grid {
   constructor(lendingService:LendingService) {
     this.lendingService = lendingService;
     setInterval(() => this.fetchItems(), 5000);
+    this.fetchItems();
   }
 
   fetchItems() {
-    console.log("fetch");
     this.lendingService.getAvailableItems()
       .subscribe(res => this.items = res.json().rows.map(res => res.value));
   }
 
   rent(start:string, end:string) {
-
-    var items = this.items.filter((item) => item.selected);
-    for (var i = 0; i < items.length; i++) {
-      this.lendingService.rent({'type': 'lending', 'itemID': items[i]._id, 'start': start, 'end': end})
+    var selectedItems = this.items.filter((item) => this.selected(item._id));
+    for (var i = 0; i < selectedItems.length; i++) {
+      this.lendingService.rent({'type': 'lending', 'itemID': selectedItems[i]._id, 'start': start, 'end': end})
         .subscribe(
             data => console.log(data),
             err => console.log(err),
             () => console.log('rent successfull')
             );
       items[i].lend = true;
-      items[i].selected = false;
-      this.lendingService.lend(items[i])
-        .subscribe(
-            data => console.log(data),
-            err => console.log(err),
-            () => console.log('lend successfull')
-            );
-      this.fetchItems();
     }
   }
 
   toggleSelected(item) {
-    if (!item.disabled) item.selected = !item.selected;
+    this.selected[item._id] = !this.selected[item._id];
+    console.log(this.selected);
   }
 }
