@@ -12,7 +12,7 @@ import {
 @Component({
 selector: 'grid',
 providers: [LendingService],
-templateUrl: 'grid.html',
+templateUrl: 'verleihfix/grid.html',
 styleUrls: ['style/verleihfix.css']
 })
 export class Grid {

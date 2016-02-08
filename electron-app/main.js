@@ -16,7 +16,7 @@ app.on('ready', function () {
   mainWindow = new BrowserWindow({ width: 1200, height: 900 });
 
   // Tell Electron where to load the entry point from
-  mainWindow.loadURL('file://' + __dirname + '/index.html');
+  mainWindow.loadURL('file://' + __dirname + '/verleihfix/index.html');
 
   // Clear out the main window when the app is closed
   mainWindow.on('closed', function () {
