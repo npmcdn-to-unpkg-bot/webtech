@@ -63,7 +63,7 @@ h1 {
 }
 .menu>input {
   display: inline;
-  width: 100px;
+  width: 128px;
   margin: 10px;
   text-align: right;
 }
@@ -87,4 +87,3 @@ h1 {
   padding: 10px;
   background-color: rgb(200,210,220);
 }
-
