@@ -32,6 +32,7 @@ export class Lendings {
   selected: boolean[];
   lendings: any;
   lendingService: LendingService;
+  newItem: any;
 
   constructor(lendingService:LendingService) {
     this.selected = [];
@@ -45,13 +46,27 @@ export class Lendings {
   }
 
   toggleSelected(item) {
-    this.selected[item._id] = !this.selected[item._id];
+    this.selected[item.id] = !this.selected[item.id];
   }
 
   delete() {
-    var selectedItems = this.lendings.filter((lending) => this.selected[lending._id]);
+    var selectedItems = this.lendings.filter((lending) => this.selected[lending.id]);
     for (var i = 0; i < selectedItems.length; i++) {
+      this.newItem = JSON.parse(JSON.stringify(selectedItems[i].item));
+      this.newItem.reservations = [];
+      var k = 0;
+      console.log(selectedItems[i].item.reservations);
+      for(var j = 0; j < selectedItems[i].item.reservations.length; j++) {
+        console.log(selectedItems[i].item.reservations[j].id);
+        console.log(selectedItems[i].id);
+        if(selectedItems[i].item.reservations[j].id != selectedItems[i].id) {
+          this.newItem.reservations[k] = selectedItems[i].item.reservations[j];
+          k++;
+        }
+      }
+      this.lendingService.deleteLending(this.newItem);
       console.log(selectedItems[i]);
+      console.log(this.newItem);
     }
   }
 }

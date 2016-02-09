@@ -1,6 +1,6 @@
 <div class="lendings">
-  <div class="lending" [class.selected]="selected[lending._id]" *ngFor="#lending of lendings" (click)="toggleSelected(lending)">
-    <p>itemID: {{lending.itemID}}</p>
+  <div class="lending" [class.selected]="selected[lending.id]" *ngFor="#lending of lendings" (click)="toggleSelected(lending)">
+    <p>item: {{lending.vendor}} {{lending.product}}</p>
     <p>start: {{lending.start}}</p>
     <p>end: {{lending.end}}</p>
   </div>

@@ -22,7 +22,7 @@ export class LendingService {
   public fullAppURL: any;
 
   constructor(http:Http) {
-    this.serverURL = "http://michael.virtuos.uni-osnabrueck.de:15984/";
+    this.serverURL = "http://michael.virtuos.uni-osnabrueck.de:5984/";
     this.appURL = "verleihfix/_design/verleihfix/";
     this.fullAppURL = this.serverURL + this.appURL;
     this.http = http;
@@ -49,7 +49,24 @@ export class LendingService {
     return this.uuids.pop();
   }
   getLendings() {
-    return this.http.get(this.fullAppURL + '/_view/lendings');
+    return this.http.get(this.fullAppURL + '/_view/reservations');
+  }
+  deleteLending(item:Item) {
+    console.log(item);
+    //var bla;
+    //this.http.delete(this.serverURL + "verleihfix/" + item._id + "?rev=" + item._rev);
+    //console.log(this.http.get(this.serverURL + "verleihfix/" + item._id));
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    //this.http.post(this.serverURL + 'verleihfix/', '{"_id": "f21a20482fa5447c39dd6fcf6015ab45", "_rev":"1-bf8ba42b947e93dd6e8e81a760d8d124", "test": "true"}', {headers:headers}).map(res => res.json())
+    
+    console.log(JSON.stringify(item));
+    this.http.post(this.serverURL + 'verleihfix/', JSON.stringify(item), {headers:headers}).map(res => res.json())
+    .subscribe(
+      data => console.log(data.id_token),
+      err => console.log(err),
+      () => console.log('Deletion Complete')
+    );
   }
 }
 
