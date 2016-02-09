@@ -2,7 +2,6 @@
   "type": "item",
   "vendor": "Zoom",
   "product": "H1",
-  "lend": false,
   "description": "MP3/WAV-Recorder",
   "dimensions": {
     "width": "44.0mm",
@@ -18,5 +17,12 @@
     "img/zoom-h1-01.jpg",
     "img/zoom-h1-02.jpg"
   ],
-  "serial": "0001"
+  "serial": "0001",
+  
+  "lent": "false",
+  "reserved": "true",
+  "reservations": [
+    {"start": "2016-02-10", "end":"2016-02-12"},
+    {"start": "2016-02-14", "end":"2016-02-16"}
+  ]
 }

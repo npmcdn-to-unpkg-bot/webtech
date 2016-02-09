@@ -4,6 +4,25 @@
     <p>{{item.vendor}} {{item.product}}</p>
   </div>
 </div>
+<div *ngFor="#item of items">
+  <div>
+    <div style="margin: 10px; margin-top: 30px; margin-bottom: 30px" *ngIf="selected[item._id]">
+      <h4><b>Details &#x2013; {{item.vendor}} {{item.product}}</b></h4>
+      <!--a><b>{{item.vendor}} {{item.product}}</b></a-->
+      <ul>
+        <li>{{item.description}}</li>
+        <li>Dimensions: width: {{item.dimensions.width}}, depth: {{item.dimensions.depth}}, height: {{item.dimensions.height}}</li>
+        <li>Weight: {{item.weight}}</li>
+      </ul>
+      <div *ngIf="item.reserved=='false'" style="text-indent:10px"><b>No reservations</b></div>
+      <div *ngIf="item.reserved=='true'" style="text-indent:10px"><b>Reservations:</b>
+        <ul>
+          <li *ngFor="#reservation of item.reservations">{{reservation.start}} &#x2013; {{reservation.end}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="menu">
   <p>{{ 'STARTTIME' }}:</p>
   <input type="date" #starttime (keyup)="refresh(starttime.value, endtime.value)" value="0">

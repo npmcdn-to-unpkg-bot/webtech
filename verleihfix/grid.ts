@@ -44,7 +44,7 @@ export class Grid {
             err => console.log(err),
             () => console.log('rent successfull')
             );
-      selectedItems[i].lend = true;
+      selectedItems[i].lent = true;
     }
   }
 
