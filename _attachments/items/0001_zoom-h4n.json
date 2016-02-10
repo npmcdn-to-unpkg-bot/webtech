@@ -2,6 +2,7 @@
   "type": "item",
   "vendor": "Zoom",
   "product": "H4N",
+  "lend": false,
   "description": "Portabler MP3/Wave-Recorder",
   "dimensions": {
     "width": "73.0mm",
@@ -18,10 +19,5 @@
     "img/zoom-h4n-02.jpg",
     "img/zoom-h4n-03.jpg"
   ],
-  "serial": "0001",
-  
-  "lent": "false",
-  "reserved": "false",
-  "reservations": [
-  ]
+  "serial": "0001"
 }
