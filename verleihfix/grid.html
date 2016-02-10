@@ -1,5 +1,5 @@
 <div class="grid">
-  <div class="item" [class.selected]="selected[item._id]" [class.hidden]="available[item._id]" *ngFor="#item of items" (click)="toggleSelected(item)">
+  <div class="item" [class.selected]="selected[item._id]" [class.hidden]="unavailable[item._id]" *ngFor="#item of items" (click)="toggleSelected(item)">
     <img src="{{lendingService.fullAppURL}}/{{item.images[0]}}"/>
     <p>{{item.vendor}} {{item.product}}</p>
   </div>

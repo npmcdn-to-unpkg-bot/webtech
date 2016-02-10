@@ -29,6 +29,7 @@ export class LendingService {
     this.fetchUUIDs();
   }
   rent(item, startDate, endDate) {
+    if (!item.reservations) item.reservations = [];
     item.reservations.push({"_id": this.getUUID(), "start": startDate, "end": endDate});
     return this.http.put(this.serverURL + "verleihfix/" + item._id,
     JSON.stringify(item),
@@ -45,6 +46,12 @@ export class LendingService {
   getUUID() {
     //TODO check if this.uuids is empty and request new ones if necessary
     return this.uuids.pop();
+  }
+  update(item) {
+    return this.http.put(this.serverURL + "verleihfix/" + item._id,
+    JSON.stringify(item),
+    { headers: new Headers({'Content-Type': 'application/json'})
+    });
   }
 }
 

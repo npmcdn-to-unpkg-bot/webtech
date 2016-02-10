@@ -18,7 +18,7 @@ styleUrls: ['style/verleihfix.css']
 export class Grid {
   items: any;
   selected: boolean[];
-  available: boolean[];
+  unavailable: boolean[];
   lendingService: any;
   startDate: Date;
   endDate: Date;
@@ -28,7 +28,7 @@ export class Grid {
     setInterval(() => this.fetchItems(), 5000);
     this.fetchItems();
     this.selected = [];
-    this.available = [];
+    this.unavailable = [];
   }
 
   fetchItems() {
@@ -45,6 +45,7 @@ export class Grid {
             err => console.log(err),
             () => console.log('rent successfull')
             );
+      this.selected[selectedItems[i]._id] = false;
     }
   }
 
@@ -55,24 +56,20 @@ export class Grid {
   refresh(starttime, endtime) {
     this.startDate = new Date(starttime);
     this.endDate = new Date(endtime);
-    this.refreshAvailable();
+    this.refreshUnAvailable();
   }
 
-  refreshAvailable() {
+  refreshUnAvailable() {
     for (var i = 0; i < this.items.length; i++) {
-      for (var j = 0; j < this.items[i].reservations.length; j++) {
+      this.unavailable[this.items[i]._id] = false;
+      for (var j = 0; this.items[i].reservations && j < this.items[i].reservations.length; j++) {
         var r = this.items[i].reservations[j];
         var start = new Date(r.start);
         var end = new Date(r.end);
-        if ((this.startDate > start && this.startDate < end)
-            || (this.endDate > start && this.endDate < end)
-            || (this.startDate < start && this.endDate > end)) {
-          this.available[this.items[i]._id] = false;
-          console.log("not ava");
-        }
-        else {
-          this.available[this.items[i]._id] = true;
-          console.log("is ava");
+        if ((this.startDate >= start && this.startDate <= end)
+            || (this.endDate >= start && this.endDate <= end)
+            || (this.startDate <= start && this.endDate >= end)) {
+          this.unavailable[this.items[i]._id] = true;
         }
       }
     }
