@@ -21,6 +21,7 @@ export class Grid {
   lendingService: any;
   starttime: number;
   endtime: number;
+  newItem: any;
 
   constructor(lendingService:LendingService) {
     this.lendingService = lendingService;
@@ -37,14 +38,20 @@ export class Grid {
   rent(start:string, end:string) {
     var selectedItems = this.items.filter((item) => this.selected[item._id]);
     for (var i = 0; i < selectedItems.length; i++) {
-      var lending = {'type': 'lending', 'itemID': selectedItems[i]._id, 'start': start, 'end': end};
-      this.lendingService.rent(lending)
-        .subscribe(
-            data => console.log(data),
-            err => console.log(err),
-            () => console.log('rent successfull')
-            );
-      selectedItems[i].lent = true;
+      this.newItem = JSON.parse(JSON.stringify(selectedItems[i]));
+      this.newItem.reservations = [];
+      var k = 0;
+      var len = selectedItems[i].reservations.length;
+      for(var j = 0; j < len; j++) {
+        this.newItem.reservations[j] = selectedItems[i].reservations[j];
+      }
+      var lendID: string;
+      lendID = this.lendingService.getUUID();
+      this.newItem.reservations[len] = {"id": lendID, "start": start, "end": end};
+      
+      this.newItem.reserved = "true";
+      this.lendingService.reserveItem(this.newItem);
+      this.fetchItems();
     }
   }
 

@@ -37,6 +37,7 @@ export class Lendings {
   constructor(lendingService:LendingService) {
     this.selected = [];
     this.lendingService = lendingService;
+    setInterval(() => this.fetchLendings(), 5000);
     this.fetchLendings();
   }
 
@@ -55,18 +56,17 @@ export class Lendings {
       this.newItem = JSON.parse(JSON.stringify(selectedItems[i].item));
       this.newItem.reservations = [];
       var k = 0;
-      console.log(selectedItems[i].item.reservations);
       for(var j = 0; j < selectedItems[i].item.reservations.length; j++) {
-        console.log(selectedItems[i].item.reservations[j].id);
-        console.log(selectedItems[i].id);
         if(selectedItems[i].item.reservations[j].id != selectedItems[i].id) {
           this.newItem.reservations[k] = selectedItems[i].item.reservations[j];
           k++;
         }
       }
+      if(k==0) {
+        this.newItem.reserved = "false";
+      }
       this.lendingService.deleteLending(this.newItem);
-      console.log(selectedItems[i]);
-      console.log(this.newItem);
+      this.fetchLendings();
     }
   }
 }
