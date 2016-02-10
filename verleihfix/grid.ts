@@ -39,14 +39,12 @@ export class Grid {
   rent() {
     var selectedItems = this.items.filter((item) => this.selected[item._id]);
     for (var i = 0; i < selectedItems.length; i++) {
-      var lending = {'type': 'lending', 'itemID': selectedItems[i]._id, 'start': this.startDate, 'end': this.endDate};
-      this.lendingService.rent(lending)
+      this.lendingService.rent(selectedItems[i], this.startDate, this.endDate)
         .subscribe(
             data => console.log(data),
             err => console.log(err),
             () => console.log('rent successfull')
             );
-      selectedItems[i].lent = true;
     }
   }
 
@@ -62,13 +60,13 @@ export class Grid {
 
   refreshAvailable() {
     for (var i = 0; i < this.items.length; i++) {
-      for (var j = 0; i < this.items[i].reservations.length; j++) {
+      for (var j = 0; j < this.items[i].reservations.length; j++) {
         var r = this.items[i].reservations[j];
-        console.log(r);
-        /*
-        if ((this.startDate > r.start && this.startDate < r.end)
-            || (this.endDate > r.start && this.endDate < r.end)
-            || (this.startDate < r.start && this.endDate > r.end)) {
+        var start = new Date(r.start);
+        var end = new Date(r.end);
+        if ((this.startDate > start && this.startDate < end)
+            || (this.endDate > start && this.endDate < end)
+            || (this.startDate < start && this.endDate > end)) {
           this.available[this.items[i]._id] = false;
           console.log("not ava");
         }
@@ -76,7 +74,6 @@ export class Grid {
           this.available[this.items[i]._id] = true;
           console.log("is ava");
         }
-        */
       }
     }
   }

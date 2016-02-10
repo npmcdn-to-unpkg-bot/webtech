@@ -30,22 +30,35 @@ providers: [LendingService]
 })
 export class Lendings {
   selected: boolean[];
-  lendings: any;
+  lendings: any[];
   lendingService: LendingService;
 
   constructor(lendingService:LendingService) {
     this.selected = [];
+    this.lendings = [];
     this.lendingService = lendingService;
     this.fetchLendings();
   }
 
   fetchLendings() {
-    this.lendingService.getLendings()
-      .subscribe(res => this.lendings = res.json().rows.map(res => res.value));
+    this.lendingService.getItems()
+      .subscribe(res => this.buildLendings(res.json().rows.map(res => res.value)));
   }
 
-  toggleSelected(item) {
-    this.selected[item._id] = !this.selected[item._id];
+  buildLendings(items) {
+    for (var i = 0; i < items.length; i++) {
+      for (var j = 0; j < items[i].reservations.length; j++) {
+        var lending = items[i];
+        var reservation = items[i].reservations[j];
+        lending.start = reservation.start;
+        lending.end = reservation.end;
+        this.lendings.push(lending);
+      }
+    }
+  }
+
+  toggleSelected(lending) {
+    this.selected[lending._id] = !this.selected[item._id];
   }
 
   delete() {
