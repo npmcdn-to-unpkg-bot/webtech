@@ -30,7 +30,8 @@ export class LendingService {
   }
   rent(item, startDate, endDate) {
     if (!item.reservations) item.reservations = [];
-    item.reservations.push({"_id": this.getUUID(), "start": startDate, "end": endDate});
+    item.reservations.push({"id": this.getUUID(), "start": startDate, "end": endDate});
+    console.log(item);
     return this.http.put(this.serverURL + "verleihfix/" + item._id,
     JSON.stringify(item),
     { headers: new Headers({'Content-Type': 'application/json'})

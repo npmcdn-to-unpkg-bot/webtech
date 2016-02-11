@@ -16,7 +16,7 @@ templateUrl: 'grid.html',
 styleUrls: ['style/verleihfix.css']
 })
 export class Grid {
-  items: any;
+  items: any[];
   selected: boolean[];
   unavailable: boolean[];
   lendingService: any;
@@ -25,15 +25,19 @@ export class Grid {
 
   constructor(lendingService:LendingService) {
     this.lendingService = lendingService;
+    this.startDate = new Date("2016-02-11"); //TODO bind and initialize this for today
+    this.endDate = new Date("2016-02-11"); //TODO bind and initialize this for today
+    this.selected = [];
+    this.items = [];
+    this.unavailable = [];
     setInterval(() => this.fetchItems(), 5000);
     this.fetchItems();
-    this.selected = [];
-    this.unavailable = [];
   }
 
   fetchItems() {
     this.lendingService.getItems()
       .subscribe(res => this.items = res.json().rows.map(res => res.value));
+    this.refreshUnAvailable();
   }
 
   rent() {
@@ -47,6 +51,7 @@ export class Grid {
             );
       this.selected[selectedItems[i]._id] = false;
     }
+    this.fetchItems();
   }
 
   toggleSelected(item) {

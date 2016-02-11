@@ -1,7 +1,7 @@
 <div class="lendings">
   <div class="item" *ngFor="#item of items">
-    <p>{{ 'ITEM_NAME' }}: {{lending.vendor}} {{lending.product}}</p>
-    <div class="reservation" [class.selected]="selected[reservation.id]" *ngFor="#reservation of item.reservations" (click)="toggleSelected(item._id, reservation.id)">
+    <p>{{ 'ITEM_NAME' }}: {{item.vendor}} {{item.product}}</p>
+    <div class="reservation" [class.selected]="selected[reservation.id]" *ngFor="#reservation of item.reservations" (click)="toggleSelected(reservation)">
       <p>{{ 'RESERVATION_START' }}: {{reservation.start}}</p>
       <p>{{ 'RESERVATION_END' }}: {{reservation.end}}</p>
     </div>

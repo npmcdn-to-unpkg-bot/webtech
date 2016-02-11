@@ -46,39 +46,24 @@ export class Lendings {
       .subscribe(res => this.items = res.json().rows.map(res => res.value));
   }
 
-  buildLendings(items) {
-    this.items = items;
-    console.log(items);
-    for (var i = 0; i < items.length; i++) {
-      for (var j = 0; items[i].reservations && j < items[i].reservations.length; j++) {
-        var lending = items[i];
-        var reservation = items[i].reservations[j];
-        lending.lendingid = reservation._id;
-        lending.start = reservation.start;
-        lending.end = reservation.end;
-        this.lendings.push(lending);
-      }
-    }
+  toggleSelected(reservation) {
+    if (reservation) this.selected[reservation.id] = !this.selected[reservation.id];
   }
 
-  toggleSelected(lending) {
-    this.selected[lending.lendingid] = !this.selected[lending.lendingid];
-  }
-
+  // TODO this fails for multiple reservations selected for one item
   delete() {
-    var selectedItems = this.lendings.filter((lending) => this.selected[lending.lendingid]);
-    for (var i = 0; i < selectedItems.length; i++) {
-      for (var j = 0; j < this.items.length; j++) {
-        for (var k = 0; this.items[j].reservations && k < this.items[j].reservations.length; k++) {
-          if (this.items[j].reservations[k]._id == selectedItems[i].lendingid) {
-            delete this.items[j].reservations[k];
-            this.lendingService.update(this.items[k])
-              .subscribe(
-                  data => console.log(data),
-                  err => console.log(err),
-                  () => console.log('delete successfull')
-                  );
-          }
+    for (var i = 0; i < this.items.length; i++) {
+      for (var j = 0; this.items[i].reservations && j < this.items[i].reservations.length; j++) {
+        if (this.items[i].reservations[j] && this.selected[this.items[i].reservations[j].id]) {
+          this.selected[this.items[i].reservations[j].id] = false;
+          var newReservations = this.items[i].reservations.slice(0, j).concat(this.items[i].reservations.slice(j + 1, this.items[i].reservations.length - j));
+          this.items[i].reservations = newReservations;
+          this.lendingService.update(this.items[i])
+            .subscribe(
+                data => console.log(data),
+                err => console.log(err),
+                () => console.log('delete successfull')
+                );
         }
       }
     }

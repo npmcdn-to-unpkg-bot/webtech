@@ -7,7 +7,17 @@ h1 {
   font-size: 30px;
 }
 
-.item {
+.grid .item.selected {
+  background: rgb(16,108,200);
+  color: white;
+}
+
+.reservation.selected {
+  background: rgb(16,108,200);
+  color: white;
+}
+
+.grid .item {
   border-radius: 5px;
   background: #EEEEEE;
   padding: 10px;
@@ -18,18 +28,20 @@ h1 {
   border: solid #DDDDDD 1px;
 }
 
-.lending {
+.lendings .item {
   border-radius: 5px;
-  background: #EEEEEE;
+  background: #FAFAFA;
   padding: 10px;
-  display: inline-block;
   margin: 10px;
   border: solid #DDDDDD 1px;
 }
 
-.selected {
-  background: rgb(16,108,200);
-  color: white;
+.reservation {
+  border-radius: 2.5px;
+  background: #EEEEEE;
+  padding: 10px;
+  margin: 10px;
+  border: solid #DDDDDD 1px;
 }
 
 .disabled {
