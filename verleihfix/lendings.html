@@ -1,13 +1,13 @@
 <div class="lendings">
   <div class="item" *ngFor="#item of items">
-    <p>{{ 'ITEM_NAME' }}: {{item.vendor}} {{item.product}}</p>
+    <p>{{ 'ITEM_NAME' | translate }}: {{item.vendor}} {{item.product}}</p>
     <div class="reservation" [class.selected]="selected[reservation.id]" *ngFor="#reservation of item.reservations" (click)="toggleSelected(reservation)">
-      <p>{{ 'RESERVATION_START' }}: {{reservation.start}}</p>
-      <p>{{ 'RESERVATION_END' }}: {{reservation.end}}</p>
-      <p>{{ 'RESERVATION_USERID' }}: {{reservation.userid}}</p>
+      <p>{{ 'RESERVATION_START' | translate }}: {{reservation.start}}</p>
+      <p>{{ 'RESERVATION_END' | translate }}: {{reservation.end}}</p>
+      <p>{{ 'RESERVATION_USERID' | translate }}: {{reservation.userid}}</p>
     </div>
   </div>
 </div>
 <div class="menu">
-  <button (click)="delete()" [class.hidden]="loginservice.userid">{{ 'DELETE' }}</button>
+  <button (click)="delete()" [class.hidden]="loginservice.userid">{{ 'DELETE' | translate }}</button>
 </div>

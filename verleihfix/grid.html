@@ -5,9 +5,9 @@
   </div>
 </div>
 <div class="menu">
-  <p>{{ 'STARTTIME' }}:</p>
+  <p>{{ 'STARTTIME' | translate }}:</p>
   <input #starttime (keyup)="refresh(starttime.value, endtime.value)" value="2016-02-11">
-  <p>{{ 'ENDTIME' }}:</p>
+  <p>{{ 'ENDTIME' | translate }}:</p>
   <input #endtime (keyup)="refresh(starttime.value, endtime.value)" value="2016-02-11">
-  <button (click)="rent(starttime.value, endtime.value)">{{ 'LEND' }}</button>
+  <button (click)="rent(starttime.value, endtime.value)">{{ 'LEND' | translate }}</button>
 </div>

@@ -42,15 +42,20 @@ pipes: [TranslatePipe]
 })
 export class Verleihfix {
   loggedIn: boolean = false;
+  translateService: any;
   constructor(translate: TranslateService) {
+    this.translateService = translate;
     var userLang = navigator.language.split('-')[0];
-    userLang = /(fr|en)/gi.test(userLang) ? userLang : 'en';
+    userLang = /(de|en)/gi.test(userLang) ? userLang : 'en';
 
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('en');
 
-    // the lang to use, if the lang isn't available, it will use the current loader to get them
-    translate.use(userLang);
+    this.setLang(userLang);
+  }
+  setLang(lang) {
+    this.translateService.use(lang);
+    this.translateService.getTranslation(lang);
   }
 }
 

@@ -8,12 +8,14 @@ import {
 import {
   Lending
 } from './lending';
+import {TranslateService, TranslatePipe} from './ng2-translate';
 
 @Component({
 selector: 'grid',
 providers: [LendingService],
 templateUrl: 'grid.html',
-styleUrls: ['style/verleihfix.css']
+styleUrls: ['style/verleihfix.css'],
+pipes: [TranslatePipe]
 })
 export class Grid {
   items: any[];

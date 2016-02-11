@@ -23,11 +23,13 @@ import {
   Lending
 } from './lending';
 import { LoginService } from './loginservice';
+import {TranslateService, TranslatePipe} from './ng2-translate';
 
 @Component({
 selector: 'lendings',
 templateUrl: 'lendings.html',
-providers: [LendingService]
+providers: [LendingService],
+pipes: [TranslatePipe]
 })
 export class Lendings {
   selected: boolean[];

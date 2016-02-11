@@ -12,10 +12,12 @@ import {
   HashLocationStrategy
 } from 'angular2/router';
 import { LoginService } from './loginservice';
+import {TranslateService, TranslatePipe} from './ng2-translate';
 
 @Component({
   selector: 'loginFB',
-  templateUrl: 'loginFB.html'
+  templateUrl: 'loginFB.html',
+  pipes: [TranslatePipe]
 })
 export class LoginFB {
   connected: boolean;

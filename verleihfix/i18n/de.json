@@ -14,5 +14,10 @@
       "USERNAME": "Benutzername",
       "PASSWORD": "Passwort",
       "WELCOME": "Willkommen bei Verleihfix!",
-      "LANGUAGE": "Sprache"
+      "ITEM_NAME": "Gerät",
+      "RESERVATION_START": "Startdatum",
+      "RESERVATION_END": "Enddatum",
+      "RESERVATION_USERID": "User ID",
+      "LANGUAGE": "Sprache",
+      "DELETE": "löschen"
 }

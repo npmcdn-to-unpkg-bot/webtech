@@ -24,6 +24,7 @@ selector: 'navigation',
 directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES, LoginFB],
 templateUrl: 'navigation.html',
 styleUrls: ['style/verleihfix.css'],
+pipes: [TranslatePipe]
 })
 export class Navigation {
   translateService: any;

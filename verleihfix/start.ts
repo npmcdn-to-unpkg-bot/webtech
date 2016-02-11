@@ -12,12 +12,12 @@ import {
   LocationStrategy,
   HashLocationStrategy
 } from 'angular2/router';
+import {TranslateService, TranslatePipe} from './ng2-translate';
 
 @Component({
-  selector: 'start'
-})
-@View({
-  template: '<h2>{{ "WELCOME" }}</h2>'
+  selector: 'start',
+  template: '<h2>{{ "WELCOME" | translate }}</h2>',
+  pipes: [TranslatePipe]
 })
 export class Start {
 
