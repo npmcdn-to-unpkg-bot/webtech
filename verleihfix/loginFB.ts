@@ -11,6 +11,7 @@ import {
   LocationStrategy,
   HashLocationStrategy
 } from 'angular2/router';
+import { LoginService } from './loginservice';
 
 @Component({
   selector: 'loginFB',
@@ -19,6 +20,7 @@ import {
 export class LoginFB {
   connected: boolean;
   username: string;
+  loginservice: LoginService;
   logIn() {
     var service = this;
     FB.login(function(response) {
@@ -51,10 +53,12 @@ export class LoginFB {
       var asd;
       asd = response;
       login.username = asd.name;
+      login.loginservice.userid = asd.id;
     });
   }
 
-  constructor() {
+  constructor(loginservice:LoginService) {
+    this.loginservice = loginservice;
     this.username = "nobody";
     //window.fbAsyncInit = function() {
       FB.init({

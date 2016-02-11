@@ -20,6 +20,7 @@ import { Navigation } from './navigation';
 import { Start } from './start';
 import { Login } from './login';
 import { LoginFB } from './loginFB';
+import { LoginService } from './loginservice';
 
 @RouteConfig([
   {path: '/', as: 'Start', component: Start },
@@ -33,14 +34,15 @@ import { LoginFB } from './loginFB';
 selector: 'verleihfix',
 templateUrl: '../verleihfix.html',
 styleUrls: ['style/verleihfix.css'],
+providers: [LoginService],
 directives: [RouterOutlet, RouterLink, ROUTER_DIRECTIVES, Navigation, Grid]
 })
 export class Verleihfix {
-  loggedIn: boolean = false;
+  public userid: string;
   constructor() {
   }
 }
 
-bootstrap(Verleihfix, [ROUTER_PROVIDERS, HTTP_PROVIDERS,
+bootstrap(Verleihfix, [ROUTER_PROVIDERS, HTTP_PROVIDERS, LoginService,
   provide(LocationStrategy, {useClass:HashLocationStrategy})]
   ).catch(err => console.error(err));

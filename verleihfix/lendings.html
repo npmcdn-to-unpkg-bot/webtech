@@ -4,6 +4,7 @@
     <div class="reservation" [class.selected]="selected[reservation.id]" *ngFor="#reservation of item.reservations" (click)="toggleSelected(reservation)">
       <p>{{ 'RESERVATION_START' }}: {{reservation.start}}</p>
       <p>{{ 'RESERVATION_END' }}: {{reservation.end}}</p>
+      <p>{{ 'RESERVATION_USERID' }}: {{reservation.userid}}</p>
     </div>
   </div>
 </div>

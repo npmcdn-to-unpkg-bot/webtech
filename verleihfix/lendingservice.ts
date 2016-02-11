@@ -11,6 +11,7 @@ import {
 import {
   Item
 } from './item';
+import { LoginService } from './loginservice';
 
 @Injectable()
 export class LendingService {
@@ -20,8 +21,10 @@ export class LendingService {
   public serverURL: any;
   public appURL: any;
   public fullAppURL: any;
+  loginservice: LoginService;
 
-  constructor(http:Http) {
+  constructor(http:Http, loginservice:LoginService) {
+    this.loginservice = loginservice;
     this.serverURL = "http://michael.virtuos.uni-osnabrueck.de:15984/";
     this.appURL = "verleihfix/_design/verleihfix/";
     this.fullAppURL = this.serverURL + this.appURL;
@@ -30,7 +33,7 @@ export class LendingService {
   }
   rent(item, startDate, endDate) {
     if (!item.reservations) item.reservations = [];
-    item.reservations.push({"id": this.getUUID(), "start": startDate, "end": endDate});
+    item.reservations.push({"id": this.getUUID(), "userid": this.loginservice.userid, "start": startDate, "end": endDate});
     console.log(item);
     return this.http.put(this.serverURL + "verleihfix/" + item._id,
     JSON.stringify(item),
