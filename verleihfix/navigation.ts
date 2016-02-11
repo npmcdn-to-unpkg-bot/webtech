@@ -17,6 +17,7 @@ import {
   LocationStrategy,
   HashLocationStrategy
 } from 'angular2/router';
+import {TranslateService, TranslatePipe} from './ng2-translate';
 
 @Component({
 selector: 'navigation',
@@ -25,5 +26,14 @@ templateUrl: 'navigation.html',
 styleUrls: ['style/verleihfix.css'],
 })
 export class Navigation {
+  translateService: any;
 
+  constructor(translate: TranslateService) {
+    this.translateService = translate;
+  }
+
+  setLang(lang) {
+    this.translateService.use(lang);
+    this.translateService.getTranslation(lang);
+  }
 }
