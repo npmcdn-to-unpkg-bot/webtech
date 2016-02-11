@@ -30,6 +30,7 @@ export class LoginFB {
   logOut() {
     var service = this;
     FB.logout(function(response) {
+      service.loginservice.userid = 0;
       service.checkLoginState();
     });
   }

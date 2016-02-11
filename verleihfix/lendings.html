@@ -9,5 +9,5 @@
   </div>
 </div>
 <div class="menu">
-  <button (click)="delete()">{{ 'DELETE' }}</button>
+  <button (click)="delete()" [class.hidden]="loginservice.userid">{{ 'DELETE' }}</button>
 </div>

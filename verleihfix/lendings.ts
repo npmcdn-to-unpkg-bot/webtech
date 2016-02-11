@@ -22,6 +22,7 @@ import {
 import {
   Lending
 } from './lending';
+import { LoginService } from './loginservice';
 
 @Component({
 selector: 'lendings',
@@ -33,8 +34,10 @@ export class Lendings {
   lendings: any[];
   items: any[];
   lendingService: LendingService;
+  loginservice: LoginService;
 
-  constructor(lendingService:LendingService) {
+  constructor(lendingService:LendingService, loginservice:LoginService) {
+    this.loginservice = loginservice;
     this.lendingService = lendingService;
     this.selected = [];
     this.items = [];
